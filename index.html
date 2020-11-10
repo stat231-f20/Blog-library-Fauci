@@ -1813,19 +1813,19 @@ $(document).ready(function () {
 <li>commit and push BOTH the <code>index.Rmd</code> and the <code>index.html</code> files</li>
 <li>go to <a href="https://stat231-f20.github.io/Blog-library-Fauci/" class="uri">https://stat231-f20.github.io/Blog-library-Fauci/</a> to see the published test document (this is publicly available!)</li>
 </ul>
+<ol style="list-style-type: lower-alpha">
+<li>change “summary(cars)” to “mosaic::favstats(~speed, data = cars)”; and (b) add “echo=FALSE” as a code chunk option to suppress the printing of the code in the output file. That is, the r code chunk should be “```{r cars, echo=FALSE}”. Knit the file. Commit and push BOTH index.Rmd and index.html to GitHub. Check your group’s website, and see that the relevant text has been updated.</li>
+</ol>
 </div>
 </div>
 <div id="including-code-and-plots" class="section level2">
 <h2>Including code and plots</h2>
 <p>You can embed code as normal, for example:</p>
-<pre class="r"><code>summary(cars)</code></pre>
-<pre><code>##      speed           dist       
-##  Min.   : 4.0   Min.   :  2.00  
-##  1st Qu.:12.0   1st Qu.: 26.00  
-##  Median :15.0   Median : 36.00  
-##  Mean   :15.4   Mean   : 42.98  
-##  3rd Qu.:19.0   3rd Qu.: 56.00  
-##  Max.   :25.0   Max.   :120.00</code></pre>
+<pre><code>## Registered S3 method overwritten by &#39;mosaic&#39;:
+##   method                           from   
+##   fortify.SpatialPolygonsDataFrame ggplot2</code></pre>
+<pre><code>##  min Q1 median Q3 max mean       sd  n missing
+##    4 12     15 19  25 15.4 5.287644 50       0</code></pre>
 <p>Let’s clean up the format of that output:</p>
 <table class="table table-striped" style="width: auto !important; margin-left: auto; margin-right: auto;">
 <thead>
