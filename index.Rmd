@@ -13,7 +13,9 @@ knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 library(tidyverse)
 ```
 
-# Header 1
+# Something Intriguing
+
+This is a really interesting blog! About what? Read more to find out...
 
 ## Header 2
 
