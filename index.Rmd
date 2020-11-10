@@ -31,12 +31,16 @@ You should test out updating your GitHub Pages website:
 - commit and push BOTH the `index.Rmd` and the `index.html` files
 - go to https://stat231-f20.github.io/Blog-library-Fauci/ to see the published test document (this is publicly available!)
 
+
+(a) change “summary(cars)” to “mosaic::favstats(~speed, data = cars)”; and (b) add “echo=FALSE” as a code chunk option to suppress the printing of the code in the output file.  That is, the r code chunk should be “```{r cars, echo=FALSE}”.  Knit the file.  Commit and push BOTH index.Rmd and index.html to GitHub.  Check your group’s website, and see that the relevant text has been updated.
+
+
 ## Including code and plots
 
 You can embed code as normal, for example:
 
-```{r cars}
-summary(cars)
+```{r cars, echo=FALSE}
+mosaic::favstats(~speed, data = cars)
 ```
 
 Let's clean up the format of that output:
