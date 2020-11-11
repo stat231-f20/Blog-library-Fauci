@@ -1,0 +1,78 @@
+---
+title: "Data Scraping- CDC Data"
+author: "Cat Sarosi:"
+output:
+  pdf_document: default
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(eval = FALSE)
+# change displayed number of digits in R Markdown document
+options(digits = 2)
+```
+
+```{r message=FALSE}
+library(tidyverse) 
+library(rvest)
+library(robotstxt)
+library(readr)
+library(datasets)
+library(naniar)
+library(rlist)
+```
+
+```{r}
+#List of State Abbreviations
+data(state)
+state_info <- data.frame(state_full = tolower(state.name)
+                         , State = state.abb
+                         , Region = state.region)
+abblist <- state_info$State
+typelist<- c("COND", "NP", "STD", "HIV")
+path = "data_behavior" 
+states_list = list()
+blank = NA
+for (i in abblist){
+  info_list = list()
+  for (j in typelist){
+    filename = paste0("data_behavior/", i, "_", j, ".csv")
+    if(file.exists(filename)){
+      data = read_csv(filename, skip = 1) %>% 
+        head(-3) %>%
+        mutate(state = i) %>%
+        mutate(type = j) %>%
+        mutate_all(funs(str_replace(., "�", "")))%>%
+        mutate_all(funs(str_replace(., "\\*", "")))%>%
+        mutate_all(funs(na_if(., ""))) %>%
+        rename_with( ~ tolower(gsub(" ", "_", .x, fixed = TRUE))) %>% 
+        rename_with( ~ gsub("_%", "", .x, fixed = TRUE)) %>%
+        mutate(sex_of_sexual_contacts = tolower(gsub(" ", "_", sex_of_sexual_contacts, fixed = TRUE))) %>%
+        select("state", "type", "sex_of_sexual_contacts", "total_n","female_n","male_n") %>%
+        pivot_wider(names_from = "sex_of_sexual_contacts", values_from = c("total_n","female_n","male_n")) 
+     
+        if(is.na(blank)){
+          blank <- data 
+          for (k in c(1:length(blank))){
+            blank[k] = NA
+          }
+        }
+        info_list[[paste0(i, "_", j)]] = data
+        
+    }
+    else{
+      data = blank
+      data["state"] = i
+      data["type"] = j
+      info_list[[paste0(i, "_", j)]] = data
+    }
+    states_list[[paste0(i)]] = bind_rows(info_list)
+  }
+}
+full_data <-bind_rows(states_list)
+write_csv(full_data,
+          "data/risky-behviors.csv", 
+          na = "NA", 
+          append = TRUE,
+          col_names = TRUE,
+          quote_escape = "double")
+```
