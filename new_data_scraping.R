@@ -92,7 +92,11 @@ cdc_split <- cdc_split_longer %>%
 
 cdc_split_wider <- cdc_split %>%
   pivot_wider(names_from = var, values_from = percent) %>%
-  select(-c(before_13))
+  select(-c(before_13)) %>%
+  arrange(State)
+
+project_data <- project_data %>%
+  mutate("State" = paste0(State," "))
 
 project_data <- project_data %>%
   left_join(cdc_split_wider, by = "State")
