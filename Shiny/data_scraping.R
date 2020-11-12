@@ -68,7 +68,7 @@ alarms <- tables %>%
   purrr::pluck(1) %>%
   html_table()
 
-write.csv(alarms, "/Users/laurenpelosi/Desktop/git/Shiny-library-Fauci/STDs")
+write.csv(alarms, "data/STDs")
 
 url2 <- "https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate"
 paths_allowed(url2)
@@ -81,7 +81,7 @@ power_to_decide <- tables %>%
   purrr::pluck(1) %>%
   html_table()
 
-write.csv(power_to_decide, "/Users/laurenpelosi/Desktop/git/Shiny-library-Fauci/teen-birth")
+write.csv(power_to_decide, "data/teen-birth")
 
 View(alarms)
 View(power_to_decide)
@@ -135,10 +135,6 @@ education_gen[education_gen == "X'"] <- 2
 education_gen[education_gen == ""] <- 0
 education_gen[education_gen == "HIV"] <- 1
 education_gen[education_gen == "Sex"] <- 2
-
-# education_gen[education_gen$'Parents Noticed' == 0] <- 3
-# education_gen[education_gen$'Parents Noticed' == 2] <- 0
-# education_gen[education_gen$'Parents Noticed' == 3] <- 2
 
 write_csv(education_gen,
           "data/education-gen.csv", 
