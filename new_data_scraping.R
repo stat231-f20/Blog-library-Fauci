@@ -42,6 +42,7 @@ for(i in 1:50){
   )
 }
 
+
 split_cdc_text <- data.frame(matrix(ncol = 54, nrow = 0))
 
 for(i in 1:50){
@@ -49,7 +50,7 @@ for(i in 1:50){
   split_cdc_text[,i] <- tryCatch(
     # This is what I want to do...
     {
-      print(str_split(cdc_scraped[i,3], "\r\n"))
+      str_split(cdc_scraped[i,3], "\r\n")
     }
     # ... but if an error occurs, set to Missing and keep going 
     , error = function(error_message) {
