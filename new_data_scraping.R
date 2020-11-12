@@ -59,4 +59,41 @@ for(i in 1:50){
   )
 }
 
+split_cdc_labels <- split_cdc_text[2,] %>%
+  str_replace("Summary Report", "") %>%
+  data.frame() %>%
+  mutate(name = paste0("X",row_number()))
+split_cdc_labels <- split_cdc_labels[1:50,]
+
+cdc_split_longer <- split_cdc_text %>%
+  pivot_longer(cols = X1:X50) %>%
+  select(name, value) %>%
+  filter(str_detect(value, "%"))
+
+cdc_split <- cdc_split_longer %>%
+  inner_join(split_cdc_labels, by = "name") %>%
+  select(-c(name)) %>%
+  rename("State" = ".") %>%
+  separate("value", c("percent", "text"), "%", remove = TRUE) %>%
+  mutate(
+    var = case_when(
+      str_detect(text, "Have had sexual intercourse with 4 or more partners") ~ "4_plus_partners",
+      str_detect(text, " of secondary schools provided those who teach sexual health education with strategies that are age-appropriate, relevant, and actively engage students in learning") ~ "edu_strategies",
+      str_detect(text, " of secondary schools across states provided those who teach sexual health education with strategies that are age-appropriate, relevant, and actively engage students in learning") ~ "edu_strategies",
+      str_detect(text, "Drank alcohol or used drugs before last sexual intercourse*") ~ "intoxicated",
+      str_detect(text, "Have had sexual intercourse for the first time before age 13 years") ~ "before_13",
+      str_detect(text, "Used a condom during last sexual intercourse*") ~ "condom",
+      str_detect(text, " of secondary schools taught how HIV and other STDs are transmitted in a required course during grades 9, 10, 11, or 12") ~ "std_edu",
+      str_detect(text, " of secondary schools across states taught how HIV and other STDs are transmitted in a required course during grades 9, 10, 11, or 12") ~ "std_edu",
+      TRUE ~ as.character(text)
+      )
+  ) %>%
+  select(-c(text))
+
+cdc_split_wider <- cdc_split %>%
+  pivot_wider(names_from = var, values_from = percent) %>%
+  select(-c(before_13))
+
+project_data <- project_data %>%
+  left_join(cdc_split_wider, by = "State")
 
