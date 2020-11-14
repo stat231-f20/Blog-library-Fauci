@@ -11,7 +11,7 @@ cdc_state_data <- data.frame(matrix(ncol = 3, nrow = 0))
 cdc_col_names <- c("State", "URL", "CDC Text")
 colnames(cdc_state_data) <- cdc_col_names
 
-project_data <- read_csv("project_data.csv")
+project_data <- read_csv("data/project_data.csv")
 state_names <- as.vector(data[,1])
 
 cdc_state_data <- rbind(cdc_state_data, data.frame(State = state_names))
