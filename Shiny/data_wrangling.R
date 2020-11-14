@@ -13,9 +13,6 @@ joined <- inner_join(STDs, teen_birth, by = "State") %>%
   rename("LYR" = "Last year's rank") %>%
   select(-c(X1.x, Rank.x, X1.y, Rank.y, LYR))
 
-STDs <- read_csv("data/STDs.csv")
-
-teen_birth <- read_csv("data/teen-birth.csv")
 
 gen_ed <- read_csv("data/education-gen.csv")
 
