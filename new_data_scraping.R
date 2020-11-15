@@ -101,3 +101,9 @@ project_data <- project_data %>%
 project_data <- project_data %>%
   left_join(cdc_split_wider, by = "State")
 
+write_csv(project_data,
+          "data/new-project-data.csv", 
+          na = "NA", 
+          append = FALSE,
+          col_names = TRUE,
+          quote_escape = "double")
