@@ -97,13 +97,6 @@ names(y_choices) <- y_choice_names
 
 ```{r pretty, echo=FALSE, warning=FALSE, message=FALSE}
 
-use_data <- reactive({
-    data <- data %>%
-      select(State, input$x, input$y)  %>%
-      left_join(gen_ed_txt, by = "State") %>%
-      left_join(content_ed_txt, by = "State") %>%
-      left_join(life_ed_txt, by = "State")
-  })
 
          selectInput(inputId = "y"
                         , label = "Choose a practice or behavior:"
@@ -117,7 +110,7 @@ use_data <- reactive({
             
                           
 renderPlotly({
-    ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
+    ggplot(data, aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
       geom_bar(stat = "identity") +
       labs(y = y_choice_names[y_choices == input$y],
            title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
