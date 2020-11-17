@@ -11,6 +11,7 @@ output:
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = TRUE, fig.align="center")
 library(tidyverse)
+library(shiny)
 ```
 
 # Something Intriguing
@@ -35,12 +36,15 @@ You should test out updating your GitHub Pages website:
 (a) change “summary(cars)” to “mosaic::favstats(~speed, data = cars)”; and (b) add “echo=FALSE” as a code chunk option to suppress the printing of the code in the output file.  That is, the r code chunk should be “```{r cars, echo=FALSE}”.  Knit the file.  Commit and push BOTH index.Rmd and index.html to GitHub.  Check your group’s website, and see that the relevant text has been updated.
 
 
-## Including code and plots
+## Embedding bar plot 
 
 You can embed code as normal, for example:
 
-```{r cars, echo=FALSE}
-mosaic::favstats(~speed, data = cars)
+```{r, echo = FALSE}
+shinyAppDir(
+  system.file("lauren_blog.app.R", package="shiny"),
+  options = list(width = "100%", height = 700)
+)
 ```
 
 Let's clean up the format of that output:
