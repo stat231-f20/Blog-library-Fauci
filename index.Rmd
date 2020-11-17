@@ -1,6 +1,6 @@
 ---
 title: "library(Fauci)"
-author: "Your Names Here"
+author: "Aditi Nayak, Lauren Pelosi, Catherine Sarosi"
 date: "Add a date"
 output:
   rmdformats::readthedown:
