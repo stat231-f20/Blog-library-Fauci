@@ -23,49 +23,132 @@ This is a really interesting blog! About what? Read more to find out...
 
 This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For example, you can include **Bold** and _Italic_ and `Code` text.  For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
 
-You should test out updating your GitHub Pages website:
-
-- clone your group's blog project repo in RStudio
-- update "Your Project Title Here" to a new title in the YAML header
-- knit `index.Rmd` 
-- commit and push BOTH the `index.Rmd` and the `index.html` files
-- go to https://stat231-f20.github.io/Blog-library-Fauci/ to see the published test document (this is publicly available!)
-
-
-(a) change “summary(cars)” to “mosaic::favstats(~speed, data = cars)”; and (b) add “echo=FALSE” as a code chunk option to suppress the printing of the code in the output file.  That is, the r code chunk should be “```{r cars, echo=FALSE}”.  Knit the file.  Commit and push BOTH index.Rmd and index.html to GitHub.  Check your group’s website, and see that the relevant text has been updated.
-
-
 ## Including code and plots
 
-You can embed code as normal, for example:
+Setting up the data:
 
 ```{r cars, echo=FALSE}
-mosaic::favstats(~speed, data = cars)
+data <- read.csv("data/new-project-data.csv") %>%
+  mutate(edu_strategies = case_when(
+    edu_strategies == "56-94" ~ 56,
+    TRUE ~ as.numeric(edu_strategies)
+  )) %>%
+  mutate(std_edu = case_when(
+    std_edu == "48-100" ~ 48,
+    TRUE ~ as.numeric(std_edu)
+  ))
+
+gen_ed_txt <- read_csv("data/education-gen-text.csv") %>%
+  rename(State = State_txt)
+
+gen_ed_txt[15,1] <- "Indiana"
+gen_ed_txt[25,1] <- "Mississippi"
+gen_ed_txt[43,1] <- "Utah"
+
+content_ed_txt <- read_csv("data/education-content-text.csv") %>%
+  rename(State = State_txt)
+
+content_ed_txt[22,1] <- "Mississippi"
+content_ed_txt[39,1] <- "Utah"
+
+life_ed_txt <- read_csv("data/education-life-text.csv") %>%
+  rename(State = State_txt)
+
+# define vectors for choice values and labels
+# for selectInput, needs to be named list
+x_choices <- as.list(names(data)[2:22])
+x_data_names <- c(names(data)[2:22])
+x_choice_names <- c("Sex Ed Mandated",
+                    "HIV Ed Mandated",
+                    "Medically Accurate",
+                    "Age Appropriate",
+                    "Culturally Appropriate/Unbiased",
+                    "Cannot Promote Religion",
+                    "Parents Notified",
+                    "Parental Consent",
+                    "Opt-Out",
+                    "Sex Ed Contraception",
+                    "Sex Ed Abstinence",
+                    "Sex Ed Marriage",
+                    "Sex Ed Orientation",
+                    "Sex Ed Negative Outcomes",
+                    "HIV Ed Condoms",
+                    "HIV Ed Abstinence",
+                    "Healthy Relationships",
+                    "Sexual decision-making and self-discipline",
+                    "Refusal skills and personal boundaries",
+                    "Consent",
+                    "Dating and sexual violence prevention")
+names(x_choices) <- x_choice_names
+print(x_choices)
+
+y_choices <- as.list(names(data)[31:38])
+y_data_names <- c(names(data)[31:38])
+y_choice_names <- c("% schools that provide strategies to Sex Ed teachers",
+                    "% of schools that teach STD transmission",
+                    "% of schools that teach human sexuality",
+                    "% of schools that teach HIV prevention",
+                    "% of schools that teach STD prevention",
+                    "% students that have had four or more partners",
+                    "% students intoxicated during last sexual intercourse")
+names(y_choices) <- y_choice_names
 ```
 
-Let's clean up the format of that output:
 
 ```{r pretty, echo=FALSE, warning=FALSE, message=FALSE}
-library(kableExtra)
-summary(cars) %>%
-  kable(col.names = c("Speed", "Distance")
-        , row.names = F) %>%
-  kable_styling(bootstrap_options = "striped"
-                , full_width = F) %>%
-  row_spec(0, bold = T, underline = T) %>%
-  column_spec(1:2, width = "1.5in") 
+
+use_data <- reactive({
+    data <- data %>%
+      select(State, input$x, input$y)  %>%
+      left_join(gen_ed_txt, by = "State") %>%
+      left_join(content_ed_txt, by = "State") %>%
+      left_join(life_ed_txt, by = "State")
+  })
+
+         selectInput(inputId = "y"
+                        , label = "Choose a practice or behavior:"
+                        , choices = y_choices
+                        , selected = "Education Strategies")
+         
+          selectInput(inputId = "x"
+                        , label = "Choose an education mandate to color by:"
+                        , choices = x_choices
+                        , selected = "Sex_Mandated")
+            
+                          
+renderPlotly({
+    ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
+      geom_bar(stat = "identity") +
+      labs(y = y_choice_names[y_choices == input$y],
+           title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
+      theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+            axis.ticks.x=element_blank()) #+
+    #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
+  })     
 ```
 
-In a study from the 1920s, fifty cars were used to see how the speed of the car and the distance taken to stop were related.  Speeds ranged between `r min(cars$speed)` and `r max(cars$speed)` mph.  Distances taken to stop ranged between `r min(cars$dist)` and `r max(cars$dist)` feet, with the middle 50% falling between `r as.numeric(quantile(cars$dist)[2])` and `r as.numeric(quantile(cars$dist)[4])` feet.  
-
-You can also embed plots as normal, for example:
 
 ```{r figure1, echo=FALSE}
-ggplot(data = cars, aes(x = speed, y = dist)) + 
-  geom_point() + 
-  labs(x = "Speed of car (mph)"
-       , y = "Distance taken to stop (ft)"
-       , title = "cars data (1920s)")
+use_data <- reactive({
+    data <- data %>%
+      select(State, input$x, input$y)  %>%
+      left_join(gen_ed_txt, by = "State") %>%
+      left_join(content_ed_txt, by = "State") %>%
+      left_join(life_ed_txt, by = "State")
+  })
+  
+  
+  #Hist Tab  -------
+  output$bar <- renderPlotly({
+    ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
+      geom_bar(stat = "identity") +
+      labs(y = y_choice_names[y_choices == input$y],
+           title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
+      theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+            axis.ticks.x=element_blank()) #+
+    #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
+  })
+}
 ```
 
 Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
