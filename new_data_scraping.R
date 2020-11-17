@@ -12,7 +12,7 @@ cdc_col_names <- c("State", "URL", "CDC Text")
 colnames(cdc_state_data) <- cdc_col_names
 
 project_data <- read_csv("data/project_data.csv")
-state_names <- as.vector(data[,1])
+state_names <- as.vector(project_data[,1])
 
 cdc_state_data <- rbind(cdc_state_data, data.frame(State = state_names))
 
@@ -26,7 +26,7 @@ cdc_scraped <- cdc_state_data %>%
 for(i in 1:50){
   
   #identify url
-  url <- cdc_final$URL[i]
+  url <- cdc_scraped$URL[i]
   
   cdc_scraped[i,3] <- tryCatch(
     # This is what I want to do...
@@ -86,7 +86,7 @@ cdc_split <- cdc_split_longer %>%
       str_detect(text, " of secondary schools taught how HIV and other STDs are transmitted in a required course during grades 9, 10, 11, or 12") ~ "std_edu",
       str_detect(text, " of secondary schools across states taught how HIV and other STDs are transmitted in a required course during grades 9, 10, 11, or 12") ~ "std_edu",
       TRUE ~ as.character(text)
-      )
+    )
   ) %>%
   select(-c(text))
 
