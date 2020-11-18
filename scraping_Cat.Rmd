@@ -47,8 +47,16 @@ for (i in abblist){
         rename_with( ~ tolower(gsub(" ", "_", .x, fixed = TRUE))) %>% 
         rename_with( ~ gsub("_%", "", .x, fixed = TRUE)) %>%
         mutate(sex_of_sexual_contacts = tolower(gsub(" ", "_", sex_of_sexual_contacts, fixed = TRUE))) %>%
-        select("state", "type", "sex_of_sexual_contacts", "total_n","female_n","male_n") %>%
-        pivot_wider(names_from = "sex_of_sexual_contacts", values_from = c("total_n","female_n","male_n")) 
+        select("state", "type", "sex_of_sexual_contacts"
+               ,"total","total_lower_ci_limit","total_upper_ci_limit"
+               ,"female", "female_lower_ci_limit","female_upper_ci_limit"
+               ,"male", "male_lower_ci_limit","male_upper_ci_limit") %>%
+        pivot_wider(names_from = "sex_of_sexual_contacts", values_from = c("total","total_lower_ci_limit"
+                                                                           ,"total_upper_ci_limit"
+                                                                        ,"female","female_lower_ci_limit"
+                                                                        ,"female_upper_ci_limit","male"
+                                                                        ,"male_lower_ci_limit"
+                                                                        ,"male_upper_ci_limit")) 
      
         if(is.na(blank)){
           blank <- data 
