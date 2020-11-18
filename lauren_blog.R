@@ -15,11 +15,11 @@ library(plotly)
 
 data <- read.csv("data/new-project-data.csv") %>%
   mutate(edu_strategies = case_when(
-    edu_strategies == "56-94" ~ 56,
+    edu_strategies == "56-94" ~ 75,
     TRUE ~ as.numeric(edu_strategies)
   )) %>%
   mutate(std_edu = case_when(
-    std_edu == "48-100" ~ 48,
+    std_edu == "48-100" ~ 74,
     TRUE ~ as.numeric(std_edu)
   ))
 
