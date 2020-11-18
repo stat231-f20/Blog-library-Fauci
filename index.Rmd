@@ -42,7 +42,7 @@ You can embed code as normal, for example:
 
 ```{r, echo = FALSE}
 shinyAppDir(
-  system.file("lauren_blog.app.R", package="shiny"),
+  system.file("https://laurenpelosi27.shinyapps.io/Blog-library-Fauci/", package="shiny"),
   options = list(width = "100%", height = 700)
 )
 ```
