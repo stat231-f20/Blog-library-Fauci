@@ -18,6 +18,8 @@ library(shiny)
 
 This is a really interesting blog! About what? Read more to find out...
 
+<iframe src="https://giphy.com/embed/3o7aTDP5aDFogC5KmY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/filmeditor-movie-mean-girls-3o7aTDP5aDFogC5KmY">via GIPHY</a></p>
+
 ## Header 2
 
 ### Header 3
