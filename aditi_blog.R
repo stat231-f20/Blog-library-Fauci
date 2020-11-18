@@ -130,25 +130,29 @@ server <- function(input,output){
   
   output$scatter <- renderPlot({
     if (input$x %in% x_choices[1:21]){
-    ggplot(data = use_data(), aes(x = get(input$x), y = get(input$y), color = factor(get(paste(input$x, "txt", sep = "_"))))) +
-      geom_point() +
-      theme(legend.position="bottom") +
-      labs(x = names(x_choices)[x_choices == paste(input$x, "txt", sep = "_")],
-           y = names(y_choices)[y_choices == input$y],
-           title = paste(paste(names(y_choices)[y_choices == input$y]),
-                         "Compared to", 
-                         paste(names(x_choices)[x_choices == input$x]),
-                         "as Statewide Requirement"), color = "Mandate Level")
+      ggplot(data = use_data(), aes(x = get(input$x), y = get(input$y), color = factor(get(paste(input$x, "txt", sep = "_"))))) +
+        geom_point() +
+        theme(legend.position="bottom") +
+        labs(x = names(x_choices)[x_choices == paste(input$x, "txt", sep = "_")],
+             y = names(y_choices)[y_choices == input$y],
+             title = paste(paste(names(y_choices)[y_choices == input$y]),
+                           "Compared to", 
+                           paste(names(x_choices)[x_choices == input$x]),
+                           "as Statewide Requirement"), 
+             color = "Mandate Level")
       }
     else {
-    ggplot(data = use_data(), aes(x = get(input$x), y = get(input$y))) +
-      geom_point() +
-      theme(legend.position="bottom") +
-      labs(x = paste("% Schools that", names(x_choices)[x_choices == paste(input$x, "txt", sep = "_")], sep = " "),
-           y = names(y_choices)[y_choices == input$y],
-           title = paste(paste(names(y_choices)[y_choices == input$y]),
-                         "Compared to Percent Secondary Schools that", 
-                         paste(names(x_choices)[x_choices == input$x]))) 
+      
+      ggplot(data = use_data(), aes(x = get(input$x), y = get(input$y))) +
+        geom_point() +
+        theme(legend.position="bottom") +
+        labs(x = paste("% Schools that",
+                       names(x_choices)[x_choices == paste(input$x, "txt", sep = "_")],
+                       sep = " "),
+             y = names(y_choices)[y_choices == input$y],
+             title = paste(paste(names(y_choices)[y_choices == input$y]),
+                           "Compared to Percent Secondary Schools that", 
+                           paste(names(x_choices)[x_choices == input$x])))
     }
   })
 }
