@@ -13,6 +13,7 @@ library(viridis)
 library(maps)
 library(plotly)
 library(rsconnect)
+<<<<<<< HEAD
  
 data <- read.csv("data/new-project-data.csv") %>%
   mutate(edu_strategies = case_when(
@@ -21,6 +22,16 @@ data <- read.csv("data/new-project-data.csv") %>%
   )) %>%
   mutate(std_edu = case_when(
     std_edu == "48-100" ~ 74,
+=======
+
+data <- read.csv("data/new-project-data.csv") %>%
+  mutate(edu_strategies = case_when(
+    edu_strategies == "56-94" ~ 56,
+    TRUE ~ as.numeric(edu_strategies)
+  )) %>%
+  mutate(std_edu = case_when(
+    std_edu == "48-100" ~ 48,
+>>>>>>> 093412b62b1fe22c46669266746e3f2e57b89833
     TRUE ~ as.numeric(std_edu)
   ))
 
@@ -86,7 +97,11 @@ ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United St
  tabPanel("School Practices and Student Behavior in States",
           sidebarPanel(
             selectInput(inputId = "y"
+<<<<<<< HEAD
                         , label = "Choose a education practice or studentbehavior:"
+=======
+                        , label = "Choose a practice or behavior:"
+>>>>>>> 093412b62b1fe22c46669266746e3f2e57b89833
                         , choices = y_choices
                         , selected = "Education Strategies")
           ),
