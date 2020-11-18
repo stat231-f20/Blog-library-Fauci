@@ -4,7 +4,7 @@ library(tidyverse)
 library(RColorBrewer)
 library(pracma)
 library(stringr)
-library(shiny) 
+library(shiny)  
 #library(readxl) # to load the data into R
 library(DT)
 library(tools)
