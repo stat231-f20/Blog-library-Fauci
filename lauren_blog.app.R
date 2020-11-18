@@ -12,9 +12,7 @@ library(magrittr)
 library(viridis)
 library(maps)
 library(plotly)
-library(rsconnect)
-<<<<<<< HEAD
- 
+
 data <- read.csv("data/new-project-data.csv") %>%
   mutate(edu_strategies = case_when(
     edu_strategies == "56-94" ~ 75,
@@ -22,16 +20,6 @@ data <- read.csv("data/new-project-data.csv") %>%
   )) %>%
   mutate(std_edu = case_when(
     std_edu == "48-100" ~ 74,
-=======
-
-data <- read.csv("data/new-project-data.csv") %>%
-  mutate(edu_strategies = case_when(
-    edu_strategies == "56-94" ~ 56,
-    TRUE ~ as.numeric(edu_strategies)
-  )) %>%
-  mutate(std_edu = case_when(
-    std_edu == "48-100" ~ 48,
->>>>>>> 093412b62b1fe22c46669266746e3f2e57b89833
     TRUE ~ as.numeric(std_edu)
   ))
 
@@ -83,44 +71,39 @@ print(x_choices)
 
 y_choices <- as.list(names(data)[31:38])
 y_data_names <- c(names(data)[31:38])
-y_choice_names <- c("% schools that provide strategies to Sex Ed teachers",
-                    "% of schools that teach STD transmission",
-                    "% of schools that teach human sexuality",
-                    "% of schools that teach HIV prevention",
-                    "% of schools that teach STD prevention",
-                    "% students that have had four or more partners",
-                    "% students intoxicated during last sexual intercourse")
+y_choice_names <- c("Education Strategies",
+                    "STD Education",
+                    "Sexuality Education",
+                    "HIV Prevention Education",
+                    "STD Prevention Education",
+                    "Four or more partners",
+                    "Intoxicated During Sex")
 names(y_choices) <- y_choice_names
 
 ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
                  
- tabPanel("School Practices and Student Behavior in States",
-          sidebarPanel(
-            selectInput(inputId = "y"
-<<<<<<< HEAD
-                        , label = "Choose a education practice or studentbehavior:"
-=======
-                        , label = "Choose a practice or behavior:"
->>>>>>> 093412b62b1fe22c46669266746e3f2e57b89833
-                        , choices = y_choices
-                        , selected = "Education Strategies")
-          ),
-            selectInput(inputId = "x"
-                        , label = "Choose an education mandate to color by:"
-                        , choices = x_choices
-                        , selected = "Sex_Mandated"),
-            
+                 tabPanel("Mandate vs. Outcome By State",
+                          sidebarPanel(
+                            selectInput(inputId = "x"
+                                        , label = "Choose an education mandate of interest:"
+                                        , choices = x_choices
+                                        , selected = "Sex_Mandated"),
+                            selectInput(inputId = "y"
+                                        , label = "Choose an education metric:"
+                                        , choices = y_choices
+                                        , selected = "Education Strategies")
+                          ),
                           
-mainPanel(
-  tabsetPanel(type = "tabs"
-              , tabPanel("Histogram", 
-                         plotlyOutput(outputId = "bar")
-                         ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
+                          mainPanel(
+                            tabsetPanel(type = "tabs"
+                                        , tabPanel("Histogram", 
+                                                   plotlyOutput(outputId = "bar")
+                                                   ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
               or higher per 1K for girls aged 15—17")   
-                         ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
+                                                   ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
               among other behaviors, “homosexual activity” is considered
               to be “responsible for contact with the AIDS virus")     
-              )))))
+                                        )))))
 
 server <- function(input,output){
   
