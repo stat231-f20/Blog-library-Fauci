@@ -38,18 +38,7 @@ You should test out updating your GitHub Pages website:
 
 ## Embedding bar plot 
 
-<iframe height="600" width="100%" frameborder="no" title="Put Your Title Here" src="https://anayak23.shinyapps.io/Blog_library_Fauci_lauren/"> </iframe>
-
-
-
-```{r, echo = FALSE}
-#shinyAppDir(
-  #system.file("https://anayak23.shinyapps.io/Blog_library_Fauci_lauren/", package="shiny"),
-  #options = list(width = "100%", height = 700)
-)
-```
-
-Let's clean up the format of that output:
+<iframe height="600" width="100%" frameborder="no" title="Increase in Global Temperature" src="https://anayak23.shinyapps.io/Blog_library_Fauci_lauren/ "> </iframe>
 
 ```{r pretty, echo=FALSE, warning=FALSE, message=FALSE}
 library(kableExtra)
