@@ -73,47 +73,42 @@ x_choice_names <- c("Sex Ed Mandated",
 names(x_choices) <- x_choice_names
 print(x_choices)
 
-y_choices <- as.list(names(data)[23:30])
-y_choices <- append(y_choices, as.list(names(data)[36:38]), after = 8)
-y_data_names <- c(names(data)[23:30])
-y_data_names <- append(y_data_names, c(names(data)[36:38]), after = 8)
-y_choice_names <- c("Chlamydia Per 100K",
-                    "Syphilis Per 100K",
-                    "Gonorrhea Per 100K",
-                    "Married Household %",
-                    "% HS Grad or Higher",
-                    "STD Index",
-                    "Births Per 1K Girls",
-                    "HIV Per 100K",
-                    "% Students with Four or more partners",
-                    "% Students Intoxicated During Sex",
-                    "% Students Used Condom During Last Sexual Intercourse")
+y_choices <- as.list(names(data)[31:38])
+y_data_names <- c(names(data)[31:38])
+y_choice_names <- c("% of schools that provide strategies to Sex Ed teachers",
+                    "% of schools that teach STD transmission",
+                    "% of teachers that try to increase knowledge on human sexuality",
+                    "% of teachers that try to increase knowledge on HIV prevention",
+                    "% of teachers that try to increase knowledge on STD prevention",
+                    "% of students that have had 4+ sexual partners",
+                    "% of students intoxicated in last sexual intercourse",
+                    "% of students that used condom in last sexual intercourse")
 names(y_choices) <- y_choice_names
 
 ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
                  
-                 tabPanel("Mandate vs. Outcome By State",
-                          sidebarPanel(
-                            selectInput(inputId = "x"
-                                        , label = "Choose an education mandate of interest:"
-                                        , choices = x_choices
-                                        , selected = "Sex_Mandated"),
-                            selectInput(inputId = "y"
-                                        , label = "Choose an education metric:"
-                                        , choices = y_choices
-                                        , selected = "Education Strategies")
-                          ),
-                          
-                          mainPanel(
-                            tabsetPanel(type = "tabs"
-                                        , tabPanel("Histogram", 
-                                                   plotlyOutput(outputId = "bar")
-                                                   ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
-              or higher per 1K for girls aged 15—17")   
-                                                   ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
-              among other behaviors, “homosexual activity” is considered
-              to be “responsible for contact with the AIDS virus")     
-                                        )))))
+tabPanel("Mandate vs. Outcome By State",
+sidebarPanel(
+  selectInput(inputId = "x"
+              , label = "Choose an education mandate of interest:"
+              , choices = x_choices
+              , selected = "Sex_Mandated"),
+  selectInput(inputId = "y"
+              , label = "Choose an education metric:"
+              , choices = y_choices
+              , selected = "Education Strategies")
+),
+
+mainPanel(
+  tabsetPanel(type = "tabs"
+              , tabPanel("Histogram", 
+                         plotlyOutput(outputId = "bar")
+                         ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
+or higher per 1K for girls aged 15—17")   
+                         ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
+among other behaviors, “homosexual activity” is considered
+to be “responsible for contact with the AIDS virus")     
+              )))))
 
 server <- function(input,output){
   
