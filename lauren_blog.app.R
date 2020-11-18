@@ -4,8 +4,7 @@ library(tidyverse)
 library(RColorBrewer)
 library(pracma)
 library(stringr)
-library(shiny)  
-#library(readxl) # to load the data into R
+library(shiny) 
 library(DT)
 library(tools)
 library(magrittr)
@@ -22,8 +21,6 @@ data <- read.csv("data/new-project-data.csv") %>%
     std_edu == "48-100" ~ 74,
     TRUE ~ as.numeric(std_edu)
   ))
-
-View(data)
 
 gen_ed_txt <- read_csv("data/education-gen-text.csv") %>%
   rename(State = State_txt)
@@ -44,7 +41,9 @@ life_ed_txt <- read_csv("data/education-life-text.csv") %>%
 # define vectors for choice values and labels
 # for selectInput, needs to be named list
 x_choices <- as.list(names(data)[2:22])
+x_choices <- append(x_choices, as.list(names(data)[31:35]), after = 21)
 x_data_names <- c(names(data)[2:22])
+x_data_names <- append(x_data_names, c(names(data)[31:35]), after = 21)
 x_choice_names <- c("Sex Ed Mandated",
                     "HIV Ed Mandated",
                     "Medically Accurate",
@@ -65,19 +64,30 @@ x_choice_names <- c("Sex Ed Mandated",
                     "Sexual decision-making and self-discipline",
                     "Refusal skills and personal boundaries",
                     "Consent",
-                    "Dating and sexual violence prevention")
+                    "Dating and sexual violence prevention",
+                    "Provided Educators with Strategies",
+                    "Taught how STDs are Transmitted",
+                    "Increased Student Knowledge on Sexuality",
+                    "Increased Student Knowledge on HIV Prevention",
+                    "Increased Student Knowledge on STD Prevention")
 names(x_choices) <- x_choice_names
 print(x_choices)
 
-y_choices <- as.list(names(data)[31:38])
-y_data_names <- c(names(data)[31:38])
-y_choice_names <- c("Education Strategies",
-                    "STD Education",
-                    "Sexuality Education",
-                    "HIV Prevention Education",
-                    "STD Prevention Education",
-                    "Four or more partners",
-                    "Intoxicated During Sex")
+y_choices <- as.list(names(data)[23:30])
+y_choices <- append(y_choices, as.list(names(data)[36:38]), after = 8)
+y_data_names <- c(names(data)[23:30])
+y_data_names <- append(y_data_names, c(names(data)[36:38]), after = 8)
+y_choice_names <- c("Chlamydia Per 100K",
+                    "Syphilis Per 100K",
+                    "Gonorrhea Per 100K",
+                    "Married Household %",
+                    "% HS Grad or Higher",
+                    "STD Index",
+                    "Births Per 1K Girls",
+                    "HIV Per 100K",
+                    "% Students with Four or more partners",
+                    "% Students Intoxicated During Sex",
+                    "% Students Used Condom During Last Sexual Intercourse")
 names(y_choices) <- y_choice_names
 
 ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
