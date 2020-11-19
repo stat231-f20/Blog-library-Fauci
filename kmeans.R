@@ -7,7 +7,7 @@ library(GGally)
 
 set.seed(75)
 
-data <- read.csv("data/new-project-data.csv") %>%
+clustering <- read.csv("data/new-project-data.csv") %>%
   mutate(edu_strategies = case_when(
     edu_strategies == "56-94" ~ 75,
     TRUE ~ as.numeric(edu_strategies)
@@ -16,19 +16,16 @@ data <- read.csv("data/new-project-data.csv") %>%
     std_edu == "48-100" ~ 74,
     TRUE ~ as.numeric(std_edu)
     )) %>%
-  drop_na()
+  select
+  drop_na() 
 
-religious <- read.csv("data/religious.csv")
-
-clustering <- religious %>%
-  left_join(data, by = "State")
 
 #determine number of clusters
 fig <- matrix(NA, nrow=10, ncol=2)
 
 for (i in 1:10){
   fig[i,1] <- i
-  fig[i,2] <- kmeans(clustering[,2:4]
+  fig[i,2] <- kmeans(clustering[,]
                      , centers=i
                      , nstart=20)$tot.withinss
 }
