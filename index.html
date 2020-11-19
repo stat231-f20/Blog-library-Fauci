@@ -1566,7 +1566,6 @@ $(document).ready(function () {
       <li><a href="#how-do-statewide-mandates-and-that-states-high-schools-sex-ed-programs-compare">How do statewide mandates and that state’s high schools’ sex ed programs compare?</a></li>
       <li><a href="#are-school-policies-and-teachers-efforts-effective-in-improving-student-health-outcomes">Are school policies and teachers’ efforts effective in improving student health outcomes?</a></li>
       </ul></li>
-      <li><a href="#how-do-school-policies-and-teachers-choices-affect-student-health-outcomes">How do school policies and teachers’ choices affect student health outcomes?</a></li>
       <li><a href="#what-groupings-form-based-on-health-outcomes">What groupings form based on health outcomes?</a></li>
       <li><a href="#conclusions">Conclusions</a></li>
       <li><a href="#references">References</a></li>
@@ -1610,6 +1609,80 @@ $(document).ready(function () {
 <li><p><strong>Sexual Behaviors</strong>: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned <a href="https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm">CDC 2017 survey report</a> offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners).</p></li>
 <li><p><strong>Health Outcomes</strong>: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by <a href="https://www.alarms.org/std-statistics/">Alarms.org</a>. We combined information from Alarms.org with data from <a href="https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate">Power to Decide</a> about teen birth rate among girls ages 15-19.</p></li>
 </ul>
+<table>
+<colgroup>
+<col width="50%"></col>
+<col width="50%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Variable</th>
+<th align="center">Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sex Ed Mandated</td>
+<td align="center">Sex education is mandated in some capacity in the state</td>
+</tr>
+<tr class="even">
+<td>HIV Ed Mandated</td>
+<td align="center">HIV education is mandated in some capacity in the state</td>
+</tr>
+<tr class="odd">
+<td>Age Appropriate</td>
+<td align="center">When provided, sex or HIV education must be age-appropriate</td>
+</tr>
+<tr class="even">
+<td>Culturally Appropriate/Unbiased</td>
+<td align="center">When provided, sex or HIV education must be culturally appropriate/unbiased</td>
+</tr>
+<tr class="odd">
+<td>Cannot Promote Religion</td>
+<td align="center">When provided, sex or HIV education cannot promote religion</td>
+</tr>
+<tr class="even">
+<td>Parents Notified</td>
+<td align="center">…that sex education is occurring</td>
+</tr>
+<tr class="odd">
+<td>Parental Consent</td>
+<td align="center">…is required for sex education</td>
+</tr>
+<tr class="even">
+<td>Opt-Out</td>
+<td align="center">Parents can choose to opt-out of sex education for their child</td>
+</tr>
+<tr class="odd">
+<td>Sex Ed Contraception</td>
+<td align="center">When provided, sex education must cover contraception</td>
+</tr>
+<tr class="even">
+<td>Sex Ed Abstinence</td>
+<td align="center">When provided, sex education must emphasize abstinence</td>
+</tr>
+<tr class="odd">
+<td>Sex Ed Marriage</td>
+<td align="center">When provided, sex education must emphasize the importance of sex only within marriage</td>
+</tr>
+<tr class="even">
+<td>Sex Ed Orientation</td>
+<td align="center">When provided, sex education must cover sexual orientation</td>
+</tr>
+<tr class="odd">
+<td>Sex Ed Negative Outcomes</td>
+<td align="center">When provided, sex education must cover the possible negative outcomes of sex</td>
+</tr>
+<tr class="even">
+<td>HIV Ed Condoms</td>
+<td align="center">When provided, HIV education must provide condoms</td>
+</tr>
+<tr class="odd">
+<td>HIV Ed Abstinence</td>
+<td align="center">When provided, HIV education cover or stress abstinence</td>
+</tr>
+</tbody>
+</table>
 <p>More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:</p>
 </div>
 </div>
@@ -1656,9 +1729,56 @@ $(document).ready(function () {
 <p>States mandate certain minimum requirements for secondary schools’ sex ed programs; however, schools can decide how they will comply with the mandate and whether they will enact policies that go beyond the mandate. Further, teachers have agency over how they will teach the material. Here we investigate the overlap between mandates and the programs that educators put into practice.</p>
 <iframe height="600" width="100%" frameborder="no" title="ScatterEdu" src="https://anayak23.shinyapps.io/edu_scatter/">
 </iframe>
+<table>
+<colgroup>
+<col width="33%"></col>
+<col width="33%"></col>
+<col width="33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Education Mandate</th>
+<th align="center">Resource Offered by High Schools</th>
+<th align="center">Interesting Insight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>HIV Ed Mandated</td>
+<td align="center">Increased Student Knowledge on HIV Prevention</td>
+<td align="center">There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).)</td>
+</tr>
+<tr class="even">
+<td>Sex Ed Orientation</td>
+<td align="center">Increased Student Knowledge on Sexuality</td>
+<td align="center">Without a mandate (coded as 0) and with a mandate (coded as 1), the percentage of teachers that tried to increase knowledge on human sexuality is highly concentrated from 70-90%. Due to the high variance in the percentage among states without a mandate, the average percentage is lower than in states with a mandate.</td>
+</tr>
+</tbody>
+</table>
 <p>We see some preliminary evidence that mandates have a small, but not definitive, effect on teacher practices.</p>
 <iframe height="600" width="100%" frameborder="no" title="Histogram3" src="https://anayak23.shinyapps.io/Blog_L3/ ">
 </iframe>
+<table>
+<colgroup>
+<col width="33%"></col>
+<col width="33%"></col>
+<col width="33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Education Mandate</th>
+<th align="center">Practice/Behavior</th>
+<th align="center">Interesting Insight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sex Ed Mandated</td>
+<td align="center">Provided Educators with Strategies</td>
+<td align="center">There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).)</td>
+</tr>
+</tbody>
+</table>
 <p>We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices.</p>
 </div>
 <div id="are-school-policies-and-teachers-efforts-effective-in-improving-student-health-outcomes" class="section level2">
@@ -1666,10 +1786,33 @@ $(document).ready(function () {
 <p>Because state mandates do not predict the comprehensiveness of school sex ed policies and teachers’ zeal in conveying the information to students, it may be that educator practices correspond to student health in a way that mandates do not. To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes. Alternatively, users can choose to plot a metric related to student behavior to investigate whether behaviors are a better predictor of health outcomes than education metrics.</p>
 <iframe height="600" width="100%" frameborder="no" title="SchoolScatter" src="https://anayak23.shinyapps.io/school_edu_scatter/">
 </iframe>
+<table>
+<colgroup>
+<col width="33%"></col>
+<col width="33%"></col>
+<col width="33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Education Mandate</th>
+<th align="center">Resource Offered by High Schools</th>
+<th align="center">Interesting Insight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Increased Student Knowledge on STD Prevention</td>
+<td align="center">STD Index</td>
+<td align="center">This display provides some evidence that teachers’ efforts to improve students’ knowledge on STD prevention improves their ability to protect themselves from STDs.</td>
+</tr>
+<tr class="even">
+<td>Increased Student knowledge on HIV Prevention</td>
+<td align="center">HIV Per 100K</td>
+<td align="center">Similarly, this display tells an optimistic story about teachers’ ability to help students protect themselves from HIV.</td>
+</tr>
+</tbody>
+</table>
 </div>
-</div>
-<div id="how-do-school-policies-and-teachers-choices-affect-student-health-outcomes" class="section level1">
-<h1>How do school policies and teachers’ choices affect student health outcomes?</h1>
 </div>
 <div id="what-groupings-form-based-on-health-outcomes" class="section level1">
 <h1>What groupings form based on health outcomes?</h1>

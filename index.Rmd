@@ -45,6 +45,31 @@ To answer these questions, we collected the following data:
 	
   - **Health Outcomes**: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by [Alarms.org](https://www.alarms.org/std-statistics/). We combined information from Alarms.org with data from [Power to Decide](https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate) about teen birth rate among girls ages 15-19.
 
+```{r tableOutcomes, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+
+tablOutcomes <- "
+| Variable        | Definition           | 
+|---------------|:-------------:|
+| Sex Ed Mandated  |  Sex education is mandated in some capacity in the state |
+| HIV Ed Mandated | HIV education is mandated in some capacity in the state  |
+| Age Appropriate | When provided, sex or HIV education must be age-appropriate      |
+| Culturally Appropriate/Unbiased  |  When provided, sex or HIV education must be culturally appropriate/unbiased |
+| Cannot Promote Religion | When provided, sex or HIV education cannot promote religion   |
+| Parents Notified | ...that sex education is occurring   |
+| Parental Consent | ...is required for sex education  |
+| Opt-Out | Parents can choose to opt-out of sex education for their child |
+| Sex Ed Contraception | When provided, sex education must cover contraception  |
+| Sex Ed Abstinence | When provided, sex education must emphasize abstinence  |
+| Sex Ed Marriage | When provided, sex education must emphasize the importance of sex only within marriage |
+| Sex Ed Orientation | When provided, sex education must cover sexual orientation  |
+| Sex Ed Negative Outcomes | When provided, sex education must cover the possible negative outcomes of sex |
+| HIV Ed Condoms | When provided, HIV education must provide condoms |
+| HIV Ed Abstinence | When provided, HIV education cover or stress abstinence |
+"
+cat(tablOutcomes) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+
 
 More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:
 
@@ -78,9 +103,32 @@ States mandate certain minimum requirements for secondary schools’ sex ed prog
 
 <iframe height="600" width="100%" frameborder="no" title="ScatterEdu" src="https://anayak23.shinyapps.io/edu_scatter/"> </iframe>
 
+```{r tableA2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##
+
+tablA2 <- "
+| Education Mandate        | Resource Offered by High Schools  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| HIV Ed Mandated | Increased Student Knowledge on HIV Prevention  | There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).) |
+| Sex Ed Orientation | Increased Student Knowledge on Sexuality | Without a mandate (coded as 0) and with a mandate (coded as 1), the percentage of teachers that tried to increase knowledge on human sexuality is highly concentrated from 70-90%. Due to the high variance in the percentage among states without a mandate, the average percentage is lower than in states with a mandate. |"
+
+cat(tablA2) # output the table in a format good for HTML/PDF/docx conversion
+```
+
 We see some preliminary evidence that mandates have a small, but not definitive, effect on teacher practices. 
 
 <iframe height="600" width="100%" frameborder="no" title="Histogram3" src="https://anayak23.shinyapps.io/Blog_L3/ "> </iframe>
+
+```{r tableLP, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with lauren_blog3
+
+tablLP <- "
+| Education Mandate        | Practice/Behavior  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| Sex Ed Mandated | Provided Educators with Strategies | There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).) |"
+
+cat(tablLP) # output the table in a format good for HTML/PDF/docx conversion
+```
 
 We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices. 
 
@@ -90,7 +138,18 @@ Because state mandates do not predict the comprehensiveness of school sex ed pol
 
 <iframe height="600" width="100%" frameborder="no" title="SchoolScatter" src="https://anayak23.shinyapps.io/school_edu_scatter/"> </iframe>
 
-# How do school policies and teachers’ choices affect student health outcomes?
+
+```{r tableScatter, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with school_edu_scatter
+
+tablScatter <- "
+| Education Mandate        | Resource Offered by High Schools  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| Increased Student Knowledge on STD Prevention | STD Index  | This display provides some evidence that teachers’ efforts to improve students' knowledge on STD prevention improves their ability to protect themselves from STDs. |
+| Increased Student knowledge on HIV Prevention | HIV Per 100K | Similarly, this display tells an optimistic story about teachers’ ability to help students protect themselves from HIV. |"
+
+cat(tablScatter) # output the table in a format good for HTML/PDF/docx conversion
+```
 
 # What groupings form based on health outcomes?
 
