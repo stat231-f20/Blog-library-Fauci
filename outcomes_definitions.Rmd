@@ -1,0 +1,32 @@
+---
+title: "variables_table"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+tabl <- "
+| Tables        | Are           | 
+|---------------|:-------------:|
+| Sex Ed Mandated  |  Sex education is mandated in some capacity in the state |
+| HIV Ed Mandated | HIV education is mandated in some capacity in the state  |
+| Age Appropriate | When provided, sex or HIV education must be age-appropriate      |
+| Culturally Appropriate/Unbiased  |  When provided, sex or HIV education must be culturally appropriate/unbiased |
+| Cannot Promote Religion | When provided, sex or HIV education cannot promote religion   |
+| Parents Notified | ...that sex education is occurring   |
+| Parental Consent | ...is required for sex education  |
+| Opt-Out | Parents can choose to opt-out of sex education for their child |
+| Sex Ed Contraception | When provided, sex education must cover contraception  |
+| Sex Ed Abstinence | When provided, sex education must emphasize abstinence  |
+| Sex Ed Marriage | When provided, sex education must emphasize the importance of sex only within marriage |
+| Sex Ed Orientation | When provided, sex education must cover sexual orientation  |
+| Sex Ed Negative Outcomes | When provided, sex education must cover the possible negative outcomes of sex |
+| HIV Ed Condoms | When provided, HIV education must provide condoms |
+| HIV Ed Abstinence | When provided, HIV education cover or stress abstinence |
+"
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```
