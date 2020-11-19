@@ -97,7 +97,7 @@ ui <- navbarPage(
                             tabsetPanel(type = "tabs"
                                         , tabPanel("Histogram",
                                                    verbatimTextOutput(outputId = "check"),
-                                                   dataTableOutput(outputId = "table"),
+                                                   tableOutput(outputId = "table"),
                                                    plotlyOutput(outputId = "bar")
                                                    #                                                    ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
                                                    # or higher per 1K for girls aged 15—17")   
@@ -123,8 +123,6 @@ server <- function(input,output){
       select(Variable, Definition)
   })
   
-  output$check <- renderPrint({input$y})
-  
   #Hist Tab  -------
   output$bar <- renderPlotly({
      ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
@@ -136,7 +134,7 @@ server <- function(input,output){
   #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
   })
   
-  output$table <- renderDataTable({
+  output$table <- renderTable({
     definitions_reactive()
   })
   
