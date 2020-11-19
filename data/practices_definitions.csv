@@ -1,9 +1,9 @@
-﻿Variable,Definition
-Provided Educators with Strategies,"% of secondary schools that provided those who teach sexual health education with strategies that are age-appropriate, relevant, and actively engage students in learning"
-Taught how STDs are Transmitted,"% of secondary schools that taught how HIV and other STDs are transmitted in a required course during grades 9, 10, 11, or 12"
-Increased Student Knowledge on Sexuality,% of teachers that try to increase knowledge on human sexuality
-Increased Student Knowledge on HIV Prevention,% of teachers that try to increase knowledge on HIV prevention
-"Increased Student Knowledge on STD Prevention""",% of teachers that try to increase knowledge on STD prevention
-% of students with 4+ past partners,% of high school students that have had sexual intercourse with 4 or more partners
-% of students intoxicated,% of high school students that drank alcohol or used drugs before last sexual intercourse
-% of students that used condom,% of high school students that used a condom during last sexual intercourse
+﻿String,Variable,Definition
+edu_strategies,Provided Educators with Strategies,"% of secondary schools that provided those who teach sexual health education with strategies that are age-appropriate, relevant, and actively engage students in learning"
+std_edu,Taught how STDs are Transmitted,"% of secondary schools that taught how HIV and other STDs are transmitted in a required course during grades 9, 10, 11, or 12"
+Human.Sexuality,Increased Student Knowledge on Sexuality,% of teachers that try to increase knowledge on human sexuality
+HIV.Prevention,Increased Student Knowledge on HIV Prevention,% of teachers that try to increase knowledge on HIV prevention
+STD.Prevention,"Increased Student Knowledge on STD Prevention""",% of teachers that try to increase knowledge on STD prevention
+X4_plus_partners,% of students with 4+ past partners,% of high school students that have had sexual intercourse with 4 or more partners
+intoxicated,% of students intoxicated,% of high school students that drank alcohol or used drugs before last sexual intercourse
+condom,% of students that used condom,% of high school students that used a condom during last sexual intercourse

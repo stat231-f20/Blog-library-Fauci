@@ -59,9 +59,9 @@ y_choice_names <- c("Chlamydia Per 100K",
                     "HIV Per 100K")
 names(y_choices) <- y_choice_names
 
-ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
+ui <- navbarPage("Student Behavior and Health Outcomes in the United States:",
                  
-                 tabPanel("Mandate vs. Outcome By State",
+                 tabPanel("Student Behavior vs. Health Outcome",
                           sidebarPanel(
                             selectInput(inputId = "x"
                                         , label = "Choose a student behavior:"
@@ -88,7 +88,7 @@ server <- function(input,output){
   
   use_data <- reactive({
     data <- data %>%
-      select(State, input$x, input$y)  %>%
+      select(input$x, input$y)  %>%
       left_join(gen_ed_txt, by = "State") %>%
       left_join(content_ed_txt, by = "State") %>%
       left_join(life_ed_txt, by = "State")
@@ -96,11 +96,11 @@ server <- function(input,output){
   
   
   #Hist Tab  -------
-  output$bar <- renderPlotly({
-    ggplot(use_data(), aes(x = reorder(get(input$y)), get(input$x), y = get(input$y), x = get(input$x))) +
+  output$scatter <- renderPlot({
+    ggplot(use_data(), aes(x = get(input$x), reorder(get(input$y)), get(input$x), y = get(input$y), x = get(input$x))) +
       geom_point(stat = "identity") +
       labs(y = y_choice_names[y_choices == input$y],
-           title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
+           title = paste(paste(names(y_choices)[y_choices == input$y]))) +
       theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
             axis.ticks.x=element_blank()) #+
     #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
