@@ -1,4 +1,4 @@
-#x-axis is State, y-axis is health outcome, colored by mandate
+#x-axis is student behavior, y-axis is health outcome
 
 library(tidyverse)
 library(shinythemes)
@@ -40,40 +40,12 @@ content_ed_txt[39,1] <- "Utah"
 life_ed_txt <- read_csv("data/education-life-text.csv") %>%
   rename(State = State_txt)
 
-# define vectors for choice values and labels
-# for selectInput, needs to be named list
-x_choices <- as.list(names(data)[2:22])
-x_choices <- append(x_choices, as.list(names(data)[31:35]), after = 21)
-x_data_names <- c(names(data)[2:22])
-x_data_names <- append(x_data_names, c(names(data)[31:35]), after = 21)
-x_choice_names <- c("Sex Ed Mandated",
-                    "HIV Ed Mandated",
-                    "Medically Accurate",
-                    "Age Appropriate",
-                    "Culturally Appropriate/Unbiased",
-                    "Cannot Promote Religion",
-                    "Parents Notified",
-                    "Parental Consent",
-                    "Opt-Out",
-                    "Sex Ed Contraception",
-                    "Sex Ed Abstinence",
-                    "Sex Ed Marriage",
-                    "Sex Ed Orientation",
-                    "Sex Ed Negative Outcomes",
-                    "HIV Ed Condoms",
-                    "HIV Ed Abstinence",
-                    "Healthy Relationships",
-                    "Sexual decision-making and self-discipline",
-                    "Refusal skills and personal boundaries",
-                    "Consent",
-                    "Dating and sexual violence prevention",
-                    "Provided Educators with Strategies",
-                    "Taught how STDs are Transmitted",
-                    "Increased Student Knowledge on Sexuality",
-                    "Increased Student Knowledge on HIV Prevention",
-                    "Increased Student Knowledge on STD Prevention")
+x_choices <- as.list(names(data)[36:38])
+x_data_names <- c(names(data)[36:38])
+x_choice_names <- c("% of students that have had 4+ sexual partners",
+                    "% of students intoxicated in last sexual intercourse",
+                    "% of students that used condom in last sexual intercourse")
 names(x_choices) <- x_choice_names
-print(x_choices)
 
 y_choices <- as.list(names(data)[23:30])
 y_data_names <- c(names(data)[23:30])
@@ -92,18 +64,18 @@ ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United St
                  tabPanel("Mandate vs. Outcome By State",
                           sidebarPanel(
                             selectInput(inputId = "x"
-                                        , label = "Choose an education mandate of interest:"
+                                        , label = "Choose a student behavior:"
                                         , choices = x_choices
-                                        , selected = "Sex_Mandated"),
+                                        , selected = "% of students that have had 4+ sexual partners"),
                             selectInput(inputId = "y"
-                                        , label = "Choose an education metric:"
+                                        , label = "Choose a health outcome:"
                                         , choices = y_choices
-                                        , selected = "Education Strategies")
+                                        , selected = "Chlamydia Per 100K")
                           ),
                           
                           mainPanel(
                             tabsetPanel(type = "tabs"
-                                        , tabPanel("Histogram", 
+                                        , tabPanel("Scatterplot", 
                                                    plotlyOutput(outputId = "bar")
                                                    ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
 or higher per 1K for girls aged 15—17")   
@@ -125,8 +97,8 @@ server <- function(input,output){
   
   #Hist Tab  -------
   output$bar <- renderPlotly({
-    ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
-      geom_bar(stat = "identity") +
+    ggplot(use_data(), aes(x = reorder(get(input$y)), get(input$x), y = get(input$y), x = get(input$x))) +
+      geom_point(stat = "identity") +
       labs(y = y_choice_names[y_choices == input$y],
            title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
       theme(axis.title.x=element_blank(), axis.text.x=element_blank(),

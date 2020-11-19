@@ -1,3 +1,5 @@
+#x-axis is State, y-axis is school and teacher practice, colored by mandate
+
 library(tidyverse)
 library(shinythemes)
 library(tidyverse)
@@ -41,9 +43,7 @@ life_ed_txt <- read_csv("data/education-life-text.csv") %>%
 # define vectors for choice values and labels
 # for selectInput, needs to be named list
 x_choices <- as.list(names(data)[2:22])
-x_choices <- append(x_choices, as.list(names(data)[31:35]), after = 21)
 x_data_names <- c(names(data)[2:22])
-x_data_names <- append(x_data_names, c(names(data)[31:35]), after = 21)
 x_choice_names <- c("Sex Ed Mandated",
                     "HIV Ed Mandated",
                     "Medically Accurate",
@@ -64,25 +64,17 @@ x_choice_names <- c("Sex Ed Mandated",
                     "Sexual decision-making and self-discipline",
                     "Refusal skills and personal boundaries",
                     "Consent",
-                    "Dating and sexual violence prevention",
-                    "Provided Educators with Strategies",
+                    "Dating and sexual violence prevention")
+names(x_choices) <- x_choice_names
+print(x_choices)
+
+y_choices <- as.list(names(data)[31:35])
+y_data_names <- c(names(data)[31:35])
+y_choice_names <- c("Provided Educators with Strategies",
                     "Taught how STDs are Transmitted",
                     "Increased Student Knowledge on Sexuality",
                     "Increased Student Knowledge on HIV Prevention",
                     "Increased Student Knowledge on STD Prevention")
-names(x_choices) <- x_choice_names
-print(x_choices)
-
-y_choices <- as.list(names(data)[31:38])
-y_data_names <- c(names(data)[31:38])
-y_choice_names <- c("% of schools that provide strategies to Sex Ed teachers",
-                    "% of schools that teach STD transmission",
-                    "% of teachers that try to increase knowledge on human sexuality",
-                    "% of teachers that try to increase knowledge on HIV prevention",
-                    "% of teachers that try to increase knowledge on STD prevention",
-                    "% of students that have had 4+ sexual partners",
-                    "% of students intoxicated in last sexual intercourse",
-                    "% of students that used condom in last sexual intercourse")
 names(y_choices) <- y_choice_names
 
 ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
