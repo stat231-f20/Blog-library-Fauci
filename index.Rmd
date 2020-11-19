@@ -1,5 +1,5 @@
 ---
-title: "library(Fauci)"
+title: "Implications of Sex Ed on Teen Sexual Health by State"
 author: "Aditi Nayak, Lauren Pelosi, Catherine Sarosi"
 date: "11/19/2020"
 output:
@@ -14,31 +14,39 @@ library(tidyverse)
 library(shiny)
 ```
 
-# Something Intriguing
+# Introduction
 
-This is a really interesting blog! About what? Read more to find out...
+<div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/3o7aTDP5aDFogC5KmY" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/filmeditor-movie-mean-girls-3o7aTDP5aDFogC5KmY">via GIPHY</a></p>
 
-<iframe src="https://giphy.com/embed/3o7aTDP5aDFogC5KmY" width="480" height="270" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/filmeditor-movie-mean-girls-3o7aTDP5aDFogC5KmY">via GIPHY</a></p>
+Sexual health is still a taboo topic across the United States. The openness in conversations about this topic vary by state, community, family, and even individual. As a result, students across the nation have vastly different sexual education experiences: some like the above scene in Mean Girls and others more comprehensive. 
 
-## Header 2
+This inconsistency and inequity in sexual education requirements across the nation is not only awkward but can also be consequential for teens. Like an accounting course prepares students for future finances and English classes helps students communicate better, sexual education helps students navigate their sexuality and safely engage in sexual activity. Without sexual education, students are less prepared to manage their sexual and reproductive health and behavior, which can lead to unwanted pregnancy and sexually transmitted diseases (STD).
 
-### Header 3
+Given how consequential sexual education can be to teenagers, we investigated how sexual education impacts certain health outcomes. The general effectiveness of sexual education is a broad topic, so we narrowed in on the following questions:
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For example, you can include **Bold** and _Italic_ and `Code` text.  For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+## Research Questions
+(1) How do statewide mandates and what high schools teach compare to student health outcomes?
+(2) Do student behaviors determine health outcomes?
+(3) What groupings form based on health outcomes?
 
-You should test out updating your GitHub Pages website:
+## Data
 
-- clone your group's blog project repo in RStudio
-- update "Your Project Title Here" to a new title in the YAML header
-- knit `index.Rmd` 
-- commit and push BOTH the `index.Rmd` and the `index.html` files
-- go to https://stat231-f20.github.io/Blog-library-Fauci/ to see the published test document (this is publicly available!)
+# How do statewide mandates and what high schools teach compare to student health outcomes?
 
+## Are stricter mandates effective in improving student health outcomes?
+## How do statewide mandates and that state’s high schools’ sex ed programs compare?
+## Are school policies and teachers’ efforts effective in improving student health outcomes?
+## Do school policies and teachers’ efforts impact student behaviors?
 
-(a) change “summary(cars)” to “mosaic::favstats(~speed, data = cars)”; and (b) add “echo=FALSE” as a code chunk option to suppress the printing of the code in the output file.  That is, the r code chunk should be “```{r cars, echo=FALSE}”.  Knit the file.  Commit and push BOTH index.Rmd and index.html to GitHub.  Check your group’s website, and see that the relevant text has been updated.
+# Do student behaviors determine health outcomes?
 
+# What groupings form based on health outcomes?
 
 ## Embedding bar plot 
 
 <iframe height="600" width="100%" frameborder="no" title="Increase in Global Temperature" src="https://anayak23.shinyapps.io/Blog_library_Fauci_lauren/ "> </iframe>
+
+# Conclusions
+
+# References
 
