@@ -95,15 +95,17 @@ ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United St
                           
                           mainPanel(
                             tabsetPanel(type = "tabs"
-                                        , tabPanel("Histogram", 
-                                                   plotlyOutput(outputId = "bar")
-                                                   ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
-or higher per 1K for girls aged 15—17")   
-                                                   ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
-among other behaviors, “homosexual activity” is considered
-to be “responsible for contact with the AIDS virus")     
-                                        ),
-                                        tableOutput(outputId = "table")
+                                        , tabPanel("Histogram",
+                                                   verbatimTextOutput(outputId = "check"),
+                                                   dataTableOutput(outputId = "table")
+#                                                    plotlyOutput(outputId = "bar")
+#                                                    ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
+# or higher per 1K for girls aged 15—17")   
+#                                                    ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
+# among other behaviors, “homosexual activity” is considered
+# to be “responsible for contact with the AIDS virus")     
+                                        )
+                                       
                                         ))))
 
 server <- function(input,output){
@@ -117,23 +119,27 @@ server <- function(input,output){
   })
   
 definitions_reactive <- reactive({
-    definitions <- filter(input$y == Variable)
-  })
+    # definitions <- filter(definitions, Variable == input$y)
+  definitions_pick <- filter(definitions, str_detect(Variable, input$y))})
+
+output$check <- renderPrint({input$y})
   
-  #Hist Tab  -------
-  output$bar <- renderPlotly({
-    ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
-      geom_bar(stat = "identity") +
-      labs(y = y_choice_names[y_choices == input$y],
-           title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
-      theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
-            axis.ticks.x=element_blank()) #+
-    #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
-  })
+  # #Hist Tab  -------
+  # output$bar <- renderPlotly({
+  #   ggplot(use_data(), aes(x = reorder(State, get(input$y)), y = get(input$y), fill = factor(get(paste(input$x))))) +
+  #     geom_bar(stat = "identity") +
+  #     labs(y = y_choice_names[y_choices == input$y],
+  #          title = paste(paste(names(y_choices)[y_choices == input$y]), "by State")) +
+  #     theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
+  #           axis.ticks.x=element_blank()) #+
+  #   #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
+  # })
   
-  renderTable({
+output$table <- renderDataTable({
     definitions_reactive()
+  #definitions
   })
+
 }
 
  
