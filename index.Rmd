@@ -20,7 +20,7 @@ library(shiny)
 
 Sexual health is still a taboo topic across the United States. The openness in conversations about this topic vary by state, community, family, and even individual. As a result, students across the nation have vastly different sexual education experiences: some like the above scene in Mean Girls and others more comprehensive. 
 
-This inconsistency and inequity in sexual education requirements across the nation is not only awkward but can also be consequential for teens. Like an accounting course prepares students for future finances and English classes helps students communicate better, sexual education helps students navigate their sexuality and safely engage in sexual activity. Without sexual education, students are less prepared to manage their sexual and reproductive health and behavior, which can lead to unwanted pregnancy and sexually transmitted diseases (STD).
+This inconsistency and inequity in sexual education requirements across the nation is not only awkward but can also be consequential for teens. Like an accounting course prepares students for future finances and English classes helps students communicate better, sexual education helps students navigate their sexuality and safely engage in sexual activity. Without sexual education, students are less prepared to manage their sexual and reproductive health and behavior, which can lead to unwanted pregnancy and sexually transmitted diseases (STDs).
 
 Given how consequential sexual education can be to teenagers, we investigated how sexual education impacts certain health outcomes. The general effectiveness of sexual education is a broad topic, so we narrowed in on the following questions:
 
@@ -63,7 +63,7 @@ tablOutcomes <- "
 | Sex Ed Orientation | When provided, sex education must cover sexual orientation  |
 | Sex Ed Negative Outcomes | When provided, sex education must cover the possible negative outcomes of sex |
 | HIV Ed Condoms | When provided, HIV education must provide condoms |
-| HIV Ed Abstinence | When provided, HIV education cover or stress abstinence |
+| HIV Ed Abstinence | When provided, HIV education must cover or stress abstinence |
 "
 cat(tablOutcomes) # output the table in a format good for HTML/PDF/docx conversion
 ```
@@ -105,7 +105,7 @@ States mandate certain minimum requirements for secondary schools’ sex ed prog
 tablA2 <- "
 | Education Mandate        | Resource Offered by High Schools  |  Interesting Insight |
 |---------------|:-------------:|:-------------:|
-| HIV Ed Mandated | Increased Student Knowledge on HIV Prevention  | There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).) |
+| HIV Ed Mandated | Increased Student Knowledge on HIV Prevention  | Here we can see that an HIV mandate decreases the variance and increases the mean of the percentage of teachers in a state that actively tried to increase knowledge on HIV prevention.  |
 | Sex Ed Orientation | Increased Student Knowledge on Sexuality | Without a mandate (coded as 0) and with a mandate (coded as 1), the percentage of teachers that tried to increase knowledge on human sexuality is highly concentrated from 70-90%. Due to the high variance in the percentage among states without a mandate, the average percentage is lower than in states with a mandate. |"
 cat(tablA2) # output the table in a format good for HTML/PDF/docx conversion
 ```

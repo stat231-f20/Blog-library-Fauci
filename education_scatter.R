@@ -101,11 +101,11 @@ ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United St
                                                    tableOutput(outputId = "table"),
                                                    plotOutput(outputId = "scatter")
                                                    
-                                                   ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
-                                                          or higher per 1K for girls aged 15—17")   
-                                                   ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
-                                                          among other behaviors, “homosexual activity” is considered
-                                                          to be “responsible for contact with the AIDS virus")     
+                                                   #,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
+                                                          #or higher per 1K for girls aged 15—17")   
+                                                   #,tags$h6("** Yes, Negative and mandated HIV education teaches that,
+                                                          #among other behaviors, “homosexual activity” is considered
+                                                          #to be “responsible for contact with the AIDS virus")     
                                         )))))
 
 server <- function(input,output){
