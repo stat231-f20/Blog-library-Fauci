@@ -31,22 +31,57 @@ Given how consequential sexual education can be to teenagers, we investigated ho
 
 ## Data
 
+To answer these questions, we collected the following data:
+
+  - **Statewide Education Mandates**: To assess how effective statewide sexual education mandates are, we need to know what each state requires as a minimum of all high school sex ed programs. We collected this data from a Guttmacher Institute survey last updated November 1, 2020, which noted if each state requires of sex ed programs to have certain characteristics.
+
+
+  - **Percent of High Schools in State with Certain Sex Ed Programs**: Even with statewide sex ed mandates, not all schools within the same state will offer similar sex ed programs.To examine what a state’s schools actually do, we collected data from the CDC. In 2017, the CDC surveyed high schools across the nation about what their school’s sex ed curriculum entailed. The CDC then reported what percent of high schools in a state teach certain topics.
+    
+    
+  - **Sexual Behaviors**: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned CDC 2017 survey report offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners). 
+	
+	
+  - **Health Outcomes**: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by Alarms.org. We combined information from Alarms.org with data from Power to Decide about teen birth rate among girls ages 15-19.
+
+
+More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks.
+
+
 # How do statewide mandates and what high schools teach compare to student health outcomes?
 
 ## Are stricter mandates effective in improving student health outcomes?
+
+Here, we explore the relationship between statewide health education mandates and metrics of student health and wellbeing. 
+
+There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play. Other variables besides health education correlate with geographic location and affect student health; these include environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their wellbeing, contrary to what this visualization suggests. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes. 
+
 ## How do statewide mandates and that state’s high schools’ sex ed programs compare?
+
+States mandate certain minimum requirements for secondary schools’ sex ed programs; however, schools can decide how they will comply with the mandate and whether they will enact policies that go beyond the mandate. Further, teachers have agency over how they will teach the material. Here we investigate the overlap between mandates and the programs that educators put into practice. 
+
+We see some preliminary evidence that mandates have a small, but not definitive, effect on teacher practices. 
+
+We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices. 
+
 ## Are school policies and teachers’ efforts effective in improving student health outcomes?
+
+Because state mandates do not predict the comprehensiveness of school sex ed policies and teachers’ zeal in conveying the information to students, it may be that educator practices correspond to student health in a way that mandates do not. To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes. Alternatively, users can choose to plot a metric related to student behavior to investigate whether behaviors are a better predictor of health outcomes than education metrics. 
+
 ## Do school policies and teachers’ efforts impact student behaviors?
 
 # Do student behaviors determine health outcomes?
 
 # What groupings form based on health outcomes?
 
-## Embedding bar plot 
-
-<iframe height="600" width="100%" frameborder="no" title="Increase in Global Temperature" src="https://anayak23.shinyapps.io/Blog_library_Fauci_lauren/ "> </iframe>
-
 # Conclusions
 
 # References
 
+Alarms.org. “Sexually Transmitted Diseases by State.” National Council For Home Safety and Security, 17 Feb. 2020, www.alarms.org/std-statistics/.   
+
+Guttmacher Institute. “Sex and HIV Education.” Guttmacher Institute, 2 Nov. 2020, www.guttmacher.org/state-policy/explore/sex-and-hiv-education.   
+
+“Teen Birth Rate Comparison, 2018: Power to Decide.” Teen Birth Rate Comparison, 2018 | Power to Decide, 2020, powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate.   
+
+U.S. Department of Health & Human Services. “State School-Based Health Education Law Summary Reports.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 20 June 2018, www.cdc.gov/healthyyouth/policy/state_law_summary_reports.html. 
