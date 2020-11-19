@@ -15,7 +15,6 @@ library(shiny)
 ```
 
 # Introduction
-
 <div style="width:100%;height:0;padding-bottom:56%;position:relative;"><iframe src="https://giphy.com/embed/3o7aTDP5aDFogC5KmY" width="100%" height="100%" style="position:absolute" frameBorder="0" class="giphy-embed" allowFullScreen></iframe></div><p><a href="https://giphy.com/gifs/filmeditor-movie-mean-girls-3o7aTDP5aDFogC5KmY">via GIPHY</a></p>
 
 Sexual health is still a taboo topic across the United States. The openness in conversations about this topic vary by state, community, family, and even individual. As a result, students across the nation have vastly different sexual education experiences: some like the above scene in Mean Girls and others more comprehensive. 
@@ -45,6 +44,8 @@ To answer these questions, we collected the following data:
 	
   - **Health Outcomes**: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by [Alarms.org](https://www.alarms.org/std-statistics/). We combined information from Alarms.org with data from [Power to Decide](https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate) about teen birth rate among girls ages 15-19.
 
+More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information also provides further context for what the variables in our upcoming visualizations mean:
+
 ```{r tableOutcomes, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 
 tablOutcomes <- "
@@ -70,16 +71,17 @@ cat(tablOutcomes) # output the table in a format good for HTML/PDF/docx conversi
 ```
 
 
-
-More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:
-
 # How do state sexual health education mandates affect student health outcomes? 
 
 ## Are stricter mandates effective in improving student health outcomes?
 
 Here, we explore the relationship between statewide health education mandates and metrics of student health and wellbeing. 
 
+To do this, we plot health outcomes by state and color by the type of state education mandate that exists. The user can select their inputs to explore how outcomes vary by state, and how outcomes may be related to the state mandate. 
+
 <iframe height="600" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/"> </iframe>
+
+### Insights
 
 ```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 tabl <- 
@@ -101,7 +103,11 @@ There seems to be a disconnect between the severity of a state’s education man
 
 States mandate certain minimum requirements for secondary schools’ sex ed programs; however, schools can decide how they will comply with the mandate and whether they will enact policies that go beyond the mandate. Further, teachers have agency over how they will teach the material. Here we investigate the overlap between mandates and the programs that educators put into practice. 
 
+Users can plot the type of health education mandate on the x-axis of the scatterplot to view how mandates are related to metrics of what actually happens in schools. 
+
 <iframe height="600" width="100%" frameborder="no" title="ScatterEdu" src="https://anayak23.shinyapps.io/edu_scatter/"> </iframe>
+
+### Insights
 
 ```{r tableA2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 ##
@@ -117,7 +123,11 @@ cat(tablA2) # output the table in a format good for HTML/PDF/docx conversion
 
 We see some preliminary evidence that mandates have a small, but not definitive, effect on teacher practices. 
 
+This bar plot uses the same x and y variables as the above scatterplot to display the data in a new way. We think this is useful to pick up on different trends. 
+
 <iframe height="600" width="100%" frameborder="no" title="Histogram3" src="https://anayak23.shinyapps.io/Blog_L3/ "> </iframe>
+
+### Insights
 
 ```{r tableLP, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 ##Corresponds with lauren_blog3
@@ -136,8 +146,12 @@ We cannot definitively conclude whether state mandates and teacher behavior are 
 
 Because state mandates do not predict the comprehensiveness of school sex ed policies and teachers’ zeal in conveying the information to students, it may be that educator practices correspond to student health in a way that mandates do not. To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes. Alternatively, users can choose to plot a metric related to student behavior to investigate whether behaviors are a better predictor of health outcomes than education metrics. 
 
+To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes and draw a correlation line between the two. 
+
 <iframe height="600" width="100%" frameborder="no" title="SchoolScatter" src="https://anayak23.shinyapps.io/school_edu_scatter/"> </iframe>
 
+
+### Insights
 
 ```{r tableScatter, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 ##Corresponds with school_edu_scatter
@@ -154,6 +168,8 @@ cat(tablScatter) # output the table in a format good for HTML/PDF/docx conversio
 # What groupings form based on health outcomes?
 
 # Conclusions
+
+## Limitations
 
 # References
 
