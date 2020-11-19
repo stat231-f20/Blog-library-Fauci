@@ -1,0 +1,44 @@
+---
+title: "findings_table"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+```
+
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with lauren_blog1
+
+tabl <- "
+| Education Mandate        | Health Outcome  |  Interesting Insight |
+|---------------|:-------------:|
+| Sexual decision making and self-discipline | % students intoxicated   |  Suggests that education on sexual decision making may not be effective, since those states where most students were intoxicated during their last sexual encounter do mandate this type of education. |
+| Sex Ed Marriage | % students with one or more partners  | The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex. |"
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with lauren_blog1
+
+tabl <- "
+| Education Mandate        | Education Metric  |  Interesting Insight
+|---------------|:-------------:|
+| Sexual decision making and self-discipline | % students intoxicated   |  Suggests that education on sexual decision making may not be effective, since those states where most students were intoxicated during their last sexual encounter do mandate this type of education. |
+| Sex Ed Marriage | % students with one or more partners  | The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex. |"
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with lauren_blog3
+
+tabl <- "
+| Education Mandate        | Practice/Behavior  |  Interesting Insight |
+|---------------|:-------------:|
+| Sexual decision making and self-discipline | % students intoxicated   | 
+There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).) |"
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+```

@@ -76,7 +76,9 @@ names(x_choices) <- x_choice_names
 print(x_choices)
 
 y_choices <- as.list(names(data)[23:30])
+y_choices <- append(y_choices, as.list(names(data)[36:38]), after = 8)
 y_data_names <- c(names(data)[23:30])
+y_data_names <- append(y_data_names, c(names(data)[36:38]), after = 8)
 y_choice_names <- c("Chlamydia Per 100K",
                     "Syphilis Per 100K",
                     "Gonorrhea Per 100K",
@@ -84,7 +86,10 @@ y_choice_names <- c("Chlamydia Per 100K",
                     "% HS Grad or Higher",
                     "STD Index",
                     "Births Per 1K Girls",
-                    "HIV Per 100K")
+                    "HIV Per 100K",
+                    "% Students with Four or more partners",
+                    "% Students Intoxicated During Sex",
+                    "% Students Used Condom During Last Sexual Intercourse")
 names(y_choices) <- y_choice_names
 
 ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
