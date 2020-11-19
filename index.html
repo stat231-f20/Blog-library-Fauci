@@ -1567,9 +1567,7 @@ $(document).ready(function () {
       <li><a href="#are-school-policies-and-teachers-efforts-effective-in-improving-student-health-outcomes">Are school policies and teachers’ efforts effective in improving student health outcomes?</a></li>
       </ul></li>
       <li><a href="#what-groupings-form-based-on-health-outcomes">What groupings form based on health outcomes?</a></li>
-      <li><a href="#conclusions">Conclusions</a><ul>
-      <li><a href="#limitations">Limitations</a></li>
-      </ul></li>
+      <li><a href="#conclusions">Conclusions</a></li>
       <li><a href="#references">References</a></li>
       </ul>
     </div>
@@ -1608,11 +1606,9 @@ $(document).ready(function () {
 <ul>
 <li><p><strong>Statewide Education Mandates</strong>: To assess how effective statewide sexual education mandates are, we need to know what each state requires as a minimum of all high school sex ed programs. We collected this data from a <a href="https://www.guttmacher.org/state-policy/explore/sex-and-hiv-education#">Guttmacher Institute</a> survey last updated November 1, 2020, which noted if each state requires of sex ed programs to have certain characteristics.</p></li>
 <li><p><strong>Percent of High Schools in State with Certain Sex Ed Programs</strong>: Even with statewide sex ed mandates, not all schools within the same state will offer similar sex ed programs.To examine what a state’s schools actually do, we collected data from the <a href="https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm">CDC</a>. In 2017, the CDC surveyed high schools across the nation about what their school’s sex ed curriculum entailed. The CDC then reported what percent of high schools in a state teach certain topics.</p></li>
-<li><p><strong>Sexual Behaviors</strong>: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned <a href="https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm">CDC 2017 survey report</a>* offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners).</p></li>
+<li><p><strong>Sexual Behaviors</strong>: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned <a href="https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm">CDC 2017 survey report</a> offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners).</p></li>
 <li><p><strong>Health Outcomes</strong>: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by <a href="https://www.alarms.org/std-statistics/">Alarms.org</a>. We combined information from Alarms.org with data from <a href="https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate">Power to Decide</a> about teen birth rate among girls ages 15-19.</p></li>
 </ul>
-<p><em>Some data points from the CDC 2017 Survey came in the form of a range rather than a single value. In these cases, we represented the range as the mean of its lower and upper limit</em></p>
-<p>More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information also provides further context for what the variables in our upcoming visualizations mean:</p>
 <table>
 <colgroup>
 <col width="50%"></col>
@@ -1687,6 +1683,7 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
+<p>More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:</p>
 </div>
 </div>
 <div id="how-do-state-sexual-health-education-mandates-affect-student-health-outcomes" class="section level1">
@@ -1694,11 +1691,8 @@ $(document).ready(function () {
 <div id="are-stricter-mandates-effective-in-improving-student-health-outcomes" class="section level2">
 <h2>Are stricter mandates effective in improving student health outcomes?</h2>
 <p>Here, we explore the relationship between statewide health education mandates and metrics of student health and wellbeing.</p>
-<p>To do this, we plot health outcomes by state and color by the type of state education mandate that exists. The user can select their inputs to explore how outcomes vary by state, and how outcomes may be related to the state mandate.</p>
 <iframe height="600" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/">
 </iframe>
-<div id="insights" class="section level3">
-<h3>Insights</h3>
 <table>
 <colgroup>
 <col width="33%"></col>
@@ -1728,17 +1722,13 @@ $(document).ready(function () {
 <p>There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play. Other variables besides health education correlate with geographic location and affect student health; these include environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their wellbeing, contrary to what this visualization suggests. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes.</p>
 </div>
 </div>
-</div>
 <div id="do-state-education-mandates-correspond-to-the-policies-schools-enact-and-the-material-teachers-choose-to-emphasize" class="section level1">
 <h1>Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?</h1>
 <div id="how-do-statewide-mandates-and-that-states-high-schools-sex-ed-programs-compare" class="section level2">
 <h2>How do statewide mandates and that state’s high schools’ sex ed programs compare?</h2>
 <p>States mandate certain minimum requirements for secondary schools’ sex ed programs; however, schools can decide how they will comply with the mandate and whether they will enact policies that go beyond the mandate. Further, teachers have agency over how they will teach the material. Here we investigate the overlap between mandates and the programs that educators put into practice.</p>
-<p>Users can plot the type of health education mandate on the x-axis of the scatterplot to view how mandates are related to metrics of what actually happens in schools.</p>
 <iframe height="600" width="100%" frameborder="no" title="ScatterEdu" src="https://anayak23.shinyapps.io/edu_scatter/">
 </iframe>
-<div id="insights-1" class="section level3">
-<h3>Insights</h3>
 <table>
 <colgroup>
 <col width="33%"></col>
@@ -1766,12 +1756,8 @@ $(document).ready(function () {
 </tbody>
 </table>
 <p>We see some preliminary evidence that mandates have a small, but not definitive, effect on teacher practices.</p>
-<p>This bar plot uses the same x and y variables as the above scatterplot to display the data in a new way. We think this is useful to pick up on different trends.</p>
 <iframe height="600" width="100%" frameborder="no" title="Histogram3" src="https://anayak23.shinyapps.io/Blog_L3/ ">
 </iframe>
-</div>
-<div id="insights-2" class="section level3">
-<h3>Insights</h3>
 <table>
 <colgroup>
 <col width="33%"></col>
@@ -1795,15 +1781,11 @@ $(document).ready(function () {
 </table>
 <p>We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices.</p>
 </div>
-</div>
 <div id="are-school-policies-and-teachers-efforts-effective-in-improving-student-health-outcomes" class="section level2">
 <h2>Are school policies and teachers’ efforts effective in improving student health outcomes?</h2>
 <p>Because state mandates do not predict the comprehensiveness of school sex ed policies and teachers’ zeal in conveying the information to students, it may be that educator practices correspond to student health in a way that mandates do not. To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes. Alternatively, users can choose to plot a metric related to student behavior to investigate whether behaviors are a better predictor of health outcomes than education metrics.</p>
-<p>To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes and draw a correlation line between the two.</p>
 <iframe height="600" width="100%" frameborder="no" title="SchoolScatter" src="https://anayak23.shinyapps.io/school_edu_scatter/">
 </iframe>
-<div id="insights-3" class="section level3">
-<h3>Insights</h3>
 <table>
 <colgroup>
 <col width="33%"></col>
@@ -1830,8 +1812,6 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>This slight correlation is particularly interesting in the context of an earlier question: are stricter state mandates effective in improving student health outcomes? Though there seems to exist just a mild correlation between what teachers actually teach and student outcomes, there was even less correlation between related statewide sex ed mandates and these same student outcomes, suggesting that what teacher’s actually teach is more influential on student health outcomes than what the state mandates.</p>
-</div>
 </div>
 </div>
 <div id="what-groupings-form-based-on-health-outcomes" class="section level1">
@@ -1839,9 +1819,15 @@ $(document).ready(function () {
 </div>
 <div id="conclusions" class="section level1">
 <h1>Conclusions</h1>
-<div id="limitations" class="section level2">
-<h2>Limitations</h2>
-</div>
+<p>Before we can draw any conclusions from our data and visualizations, we must first acknowledge the limitations of this data.</p>
+<p>The first is that, because we drew different variables from different sources, some data points don’t reflect data from the same years. While some sources are from an ambiguous time period, most are from the years 2017-2019. Presumably, our variables haven’t changed in a drastic way in this short period, though they could have.</p>
+<p>Another limitation is that our metrics of school practices and teacher attitudes relied on self-reporting from the state. States seem to differ in their infrastructures for collecting this information; for example Colorado presented wide ranges as estimates, of which we decided to take the mean. The disparity in states’ care and caution in collecting information is likely not independent from their mandates, policies, and practices regarding sex ed, and for this reason this could be a significant limitation.</p>
+<p>We can make a few primary conclusions responsive to our research questions.</p>
+<ol style="list-style-type: decimal">
+<li><p>Statewide sexual health education mandates do not seem to correlate with student’s health outcomes.</p></li>
+<li><p>We cannot definitively say if there is a causal effect, but we think Conclusion 1 may be true in part because sexual health education mandates do not exactly predict what actually occurs in schools in particular states. School policies and teachers’ desire to emphasize the material seem to be independent from mandates.</p></li>
+<li><p>While strict mandates don’t correspond to better health outcomes, there is strong evidence that teachers’ buy-in to the material do correspond to better health outcomes. In particular, there seems to be a strong effect of teacher practices regarding STD and HIV prevention in decreasing STD and HIV rates (though we cannot assume this is a causal relationship.)</p></li>
+</ol>
 </div>
 <div id="references" class="section level1">
 <h1>References</h1>
