@@ -56,6 +56,18 @@ Here, we explore the relationship between statewide health education mandates an
 
 <iframe height="600" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/"> </iframe>
 
+```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+tabl <- 
+"| Education Mandate        | Health Outcome  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| Sexual decision making and self-discipline | % students intoxicated | Suggests that education on sexual decision making may not be effective, since those states where most students were intoxicated during their last sexual encounter do mandate this type of education. |
+| Sex Ed Marriage | % students with one or more partners  | The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex. |"
+
+cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
+
+```
+
+
 There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play. Other variables besides health education correlate with geographic location and affect student health; these include environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their wellbeing, contrary to what this visualization suggests. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes. 
 
 # Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?
