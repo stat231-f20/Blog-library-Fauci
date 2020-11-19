@@ -123,7 +123,7 @@ tablLP <- "
 cat(tablLP) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices. 
+We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices.  
 
 ## Are school policies and teachers’ efforts effective in improving student health outcomes?
 
