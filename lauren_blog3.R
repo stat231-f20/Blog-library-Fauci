@@ -79,7 +79,7 @@ y_choice_names <- c("Provided Educators with Strategies",
                     "Increased Student Knowledge on STD Prevention")
 names(y_choices) <- y_choice_names
 
-ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
+ui <- navbarPage(
                  
                  tabPanel("School Practices and Teacher Behaviors by State",
                           sidebarPanel(
