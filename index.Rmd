@@ -142,7 +142,19 @@ tablScatter <- "
 cat(tablScatter) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-# What groupings form based on health outcomes?
+# What can spacial data show us about potential regional differences in mandates and outcomes?
+
+<iframe height="1000" width="100%" frameborder="no" title="Spacial" src=" https://csarosi.shinyapps.io/spacial_data/"> </iframe>
+
+```{r tableSpacial, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with spacial_data
+tablSpacial <- "
+| Education Mandate        | Resource Offered by High Schools  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| Increased Student Knowledge on STD Prevention | STD Index  | This display provides some evidence that teachers’ efforts to improve students' knowledge on STD prevention improves their ability to protect themselves from STDs. |
+| Increased Student knowledge on HIV Prevention | HIV Per 100K | Similarly, this display tells an optimistic story about teachers’ ability to help students protect themselves from HIV. |"
+cat(tablSpacial) # output the table in a format good for HTML/PDF/docx conversion
+```
 
 # Conclusions
 
