@@ -39,10 +39,12 @@ To answer these questions, we collected the following data:
   - **Percent of High Schools in State with Certain Sex Ed Programs**: Even with statewide sex ed mandates, not all schools within the same state will offer similar sex ed programs.To examine what a state’s schools actually do, we collected data from the [CDC](https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm). In 2017, the CDC surveyed high schools across the nation about what their school’s sex ed curriculum entailed. The CDC then reported what percent of high schools in a state teach certain topics.
     
     
-  - **Sexual Behaviors**: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned [CDC 2017 survey report](https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm) offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners). 
+  - **Sexual Behaviors**: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned [CDC 2017 survey report](https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm)* offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners). 
 	
 	
   - **Health Outcomes**: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by [Alarms.org](https://www.alarms.org/std-statistics/). We combined information from Alarms.org with data from [Power to Decide](https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate) about teen birth rate among girls ages 15-19.
+
+*Some data points from the CDC 2017 Survey came in the form of a range rather than a single value. In these cases, we represented the range as the mean of its lower and upper limit*
 
 More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information also provides further context for what the variables in our upcoming visualizations mean:
 
@@ -164,6 +166,8 @@ tablScatter <- "
 
 cat(tablScatter) # output the table in a format good for HTML/PDF/docx conversion
 ```
+
+This slight correlation is particularly interesting in the context of an earlier question: are stricter state mandates effective in improving student health outcomes? Though there seems to exist just a mild correlation between what teachers actually teach and student outcomes, there was even less correlation between related statewide sex ed mandates and these same student outcomes, suggesting that what teacher's actually teach is more influential on student health outcomes than what the state mandates.
 
 # What groupings form based on health outcomes?
 
