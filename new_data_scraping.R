@@ -107,3 +107,24 @@ write_csv(project_data,
           append = FALSE,
           col_names = TRUE,
           quote_escape = "double")
+
+#scrape religious data
+#check if scraping is allowed
+paths_allowed("https://www.pewresearch.org/fact-tank/2016/02/29/how-religious-is-your-state/?state=alabama")
+
+url <- "https://www.pewresearch.org/fact-tank/2016/02/29/how-religious-is-your-state/?state=alabama"
+tables <- url %>%
+  read_html() %>%
+  html_nodes(xpath = '//*[@id="data-table"]') %>%
+  html_table()
+
+#create data frame with table for the percent of highly religious adults 
+religious <- as.data.frame(html_table(tables[1], fill = TRUE))
+
+#write data frame out to a csv file called 'religious.csv'
+write_csv(religious,
+          "data/religious.csv", 
+          na = "NA", 
+          append = TRUE,
+          col_names = TRUE,
+          quote_escape = "double")

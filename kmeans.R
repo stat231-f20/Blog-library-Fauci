@@ -15,9 +15,10 @@ data <- read.csv("data/new-project-data.csv") %>%
   mutate(std_edu = case_when(
     std_edu == "48-100" ~ 74,
     TRUE ~ as.numeric(std_edu)
-    ))
+    )) %>%
+  drop_na()
 
-religious <- read.csv()
+religious <- read.csv("data/religious.csv")
 
 clustering <- religious %>%
   left_join(data, by = "State")
