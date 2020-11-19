@@ -69,16 +69,16 @@ y_choice_names <- c("Chlamydia Per 100K",
                     "% Students Used Condom During Last Sexual Intercourse")
 names(y_choices) <- y_choice_names
 
-ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
+ui <- navbarPage(
                  
-                 tabPanel("Mandate vs. Outcome By State",
+                 tabPanel("School policies, teacher effort, and health outcomes",
                           sidebarPanel(
                             selectInput(inputId = "x"
                                         , label = "Choose resource offered by high schools:"
                                         , choices = x_choices
                                         , selected = "HIV.Prevention"),
                             selectInput(inputId = "y"
-                                        , label = "Choose an education metric:"
+                                        , label = "Choose a health outcome or student behavior:"
                                         , choices = y_choices
                                         , selected = "HIV")
                           ),
