@@ -10,7 +10,7 @@ library(tidyverse)
 
 ```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 tabl <- "
-| Tables        | Are           | 
+| Variable        | Definition           | 
 |---------------|:-------------:|
 | Sex Ed Mandated  |  Sex education is mandated in some capacity in the state |
 | HIV Ed Mandated | HIV education is mandated in some capacity in the state  |
