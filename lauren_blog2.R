@@ -24,6 +24,8 @@ data <- read.csv("data/new-project-data.csv") %>%
     TRUE ~ as.numeric(std_edu)
   ))
 
+definitions <- read.csv("data/practices_definitions.csv")
+
 gen_ed_txt <- read_csv("data/education-gen-text.csv") %>%
   rename(State = State_txt)
 
@@ -79,16 +81,16 @@ names(y_choices) <- y_choice_names
 
 ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United States:",
                  
-                 tabPanel("Mandate vs. Outcome By State",
+                 tabPanel("School Practices and Teacher Behaviors by State",
                           sidebarPanel(
                             selectInput(inputId = "x"
                                         , label = "Choose an education mandate of interest:"
                                         , choices = x_choices
                                         , selected = "Sex_Mandated"),
                             selectInput(inputId = "y"
-                                        , label = "Choose an education metric:"
+                                        , label = "Choose a practice or behavior:"
                                         , choices = y_choices
-                                        , selected = "Education Strategies")
+                                        , selected = "Provided Educators with Strategies")
                           ),
                           
                           mainPanel(
@@ -100,7 +102,9 @@ or higher per 1K for girls aged 15—17")
                                                    ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
 among other behaviors, “homosexual activity” is considered
 to be “responsible for contact with the AIDS virus")     
-                                        )))))
+                                        ),
+                                        tableOutput(outputId = "table")
+                                        ))))
 
 server <- function(input,output){
   
@@ -112,6 +116,9 @@ server <- function(input,output){
       left_join(life_ed_txt, by = "State")
   })
   
+definitions_reactive <- reactive({
+    definitions <- filter(input$y == Variable)
+  })
   
   #Hist Tab  -------
   output$bar <- renderPlotly({
@@ -122,6 +129,10 @@ server <- function(input,output){
       theme(axis.title.x=element_blank(), axis.text.x=element_blank(),
             axis.ticks.x=element_blank()) #+
     #scale_fill_distiller(palette = "Set2", name = paste(paste(names(x_choices)[x_choices == input$x])))
+  })
+  
+  renderTable({
+    definitions_reactive()
   })
 }
 
