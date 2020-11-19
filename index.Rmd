@@ -42,14 +42,11 @@ Given how consequential sexual education can be to teenagers, we investigated ho
 
 # What groupings form based on health outcomes?
 
-
 ## Embedding bar plot 
 
 <iframe height="600" width="100%" frameborder="no" title="Increase in Global Temperature" src="https://anayak23.shinyapps.io/Blog_library_Fauci_lauren/ "> </iframe>
 
+# Conclusions
 
-#Conclusions
-
-#References
-
+# References
 
