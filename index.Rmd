@@ -78,7 +78,7 @@ More information about what the data represents or how it was collected by these
 
 Here, we explore the relationship between statewide health education mandates and metrics of student health and wellbeing. 
 
-<iframe height="850" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/"> </iframe>
+<iframe height="750" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/"> </iframe>
 
 ```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 tabl <- 
