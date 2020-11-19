@@ -165,7 +165,7 @@ The first is that, because we drew different variables from different sources, s
 
 Another limitation is that our metrics of school practices and teacher attitudes relied on self-reporting from the state. States seem to differ in their infrastructures for collecting this information; for example Colorado presented wide ranges as estimates, of which we decided to take the mean. The disparity in states’ care and caution in collecting information is likely not independent from their mandates, policies, and practices regarding sex ed, and for this reason this could be a significant limitation.  
 
-We  can make a few primary conclusions responsive to our research questions.
+Keeping these limitations in mind, we can make a few primary conclusions responsive to our research questions.
 
 1. Statewide sexual health  education mandates do not seem to correlate with student’s health outcomes.
 
@@ -173,11 +173,13 @@ We  can make a few primary conclusions responsive to our research questions.
 
 3. While strict mandates don’t correspond to better health outcomes, there is strong evidence that teachers’ buy-in to the material do correspond to better health outcomes. In particular, there seems to be a strong effect of teacher practices regarding STD and HIV prevention in decreasing STD and HIV rates (though we cannot assume this is a causal relationship.) On the other hand, schools that provide sex ed teachers the materials they need, going beyond state mandate guidelines, have not seen the reward of better student health outcomes. 
 
-We would recommend the following to state legislatures, schools, or educators looking to improve the student health outcomes in their state. 
+We would recommend the following to state legislators, schools, or educators looking to improve the student health outcomes in their state. 
 
-1. Initiatives that increase teacher buy-in, confidence, and comfort with the material will have the most significant impact of student health outcomes. It might be useful to put mediated groups together where teachers can talk about these topics and how they feel teaching them, as well as share their own techniques with others. 
+1. Initiatives that increase teacher buy-in, confidence, and comfort with the material will have the most significant impact on student health outcomes. It might be useful to put mediated teacher groups together, in which teachers can talk about the material, share their feelings about their responsibility to present it to students in an engaging way, and swap ideas about techniques.  
 
-2. A focus on the efficacy of the strategies that are recommended to teachers has the potential to go a long way, since states in which these strategies are most likely to be implemented also see high STD infection rates. 
+2. A focus on the efficacy of the strategies schools provide to teachers has the potential to go a long way, since states in which these strategies are most likely to be implemented also see high STD infection rates. 
+
+Generally, mandates less efficacious than might be expected, and efforts to improve student health should focus on the policies and practices exhibited in schools. 
 
 
 # References
