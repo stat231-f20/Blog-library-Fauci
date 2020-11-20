@@ -14,8 +14,7 @@ library(plotly)
 
 
 # setup -----
-data <- read_csv("data/new-project-data.csv") %>% 
-  rename("four_plus_partners" = "4_plus_partners")
+data <- read_csv("data/new-project-data.csv")
 states_loc <-  map_data(map = "state"
                         , region = ".")
 
