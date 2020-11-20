@@ -1,4 +1,6 @@
+#last minute attempt, not functioning, please ignore
 #are there groupings for which states require sex ed?
+#Code from: Aditi
 
 library(tidyverse)
 library(mdsr)
@@ -16,7 +18,7 @@ clustering <- read.csv("data/new-project-data.csv") %>%
     std_edu == "48-100" ~ 74,
     TRUE ~ as.numeric(std_edu)
     )) %>%
-  select
+  select("State", "HIV_Mandated", "HIV_Condoms", "HIV_Abstinence", "HIV") %>%
   drop_na() 
 
 
@@ -25,7 +27,7 @@ fig <- matrix(NA, nrow=10, ncol=2)
 
 for (i in 1:10){
   fig[i,1] <- i
-  fig[i,2] <- kmeans(clustering[,]
+  fig[i,2] <- kmeans(clustering[,2:5]
                      , centers=i
                      , nstart=20)$tot.withinss
 }
@@ -37,7 +39,7 @@ ggplot(data = as.data.frame(fig), aes(x = V1, y = V2)) +
   labs(x = "K", y = expression("Total W"[k]))
 
 #standardize variables
-vars_std <- c("relig_std", "SexEd_std", "Birth_std")
+vars_std <- c("Mandated_std", "Condoms_std", "Abstinence_std", "cases_std")
 km3_out_std <- kmeans(clustering[,vars_std]
                       , centers=3
                       , nstart=20)
