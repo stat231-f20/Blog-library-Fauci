@@ -101,9 +101,9 @@ ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United St
                                         , choices = x_choices
                                         , selected = "Sex_Mandated"),
                             selectInput(inputId = "y"
-                                        , label = "Choose an education metric:"
+                                        , label = "Choose a health outcome or student behavior:"
                                         , choices = y_choices
-                                        , selected = "Education Strategies")
+                                        , selected = "Chlamydia Per 100K")
                           ),
                           
                           mainPanel(
