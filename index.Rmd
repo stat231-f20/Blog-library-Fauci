@@ -68,15 +68,28 @@ tablOutcomes <- "
 cat(tablOutcomes) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-
-
 More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:
+
+# What can spacial data show us about potential regional differences in mandates and outcomes?
+
+<iframe height="1300" width="100%" frameborder="no" title="Spacial" src=" https://csarosi.shinyapps.io/spacial_data/"> </iframe>
+
+```{r tableSpacial, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with spacial_data
+tablSpacial <- "
+| Education Mandate        | Health Outcomes  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| Medically Accurate | Births per 1k Girls | This map reveals both the underlying regional variations in Births per 1k Girls, as well as some correlations between the medically accurate mandate with NC and VA showing relatively low numbers of births in the context of their region. We also see an incredibly mixed bag in terms of the states that do and do not mandate medically accurate sexual education. |
+| Sex Ed Abstinence | Births per 1k  | This mandate is an interesting one, especially in the context that abstinence only sex ed has largely been shown to do little to stop teens from having sex. As can be seen, the majority of states have this mandate, with a particular regional focus in the south. It should also be noted that the new england states with the lowest birth rate among girls all only mandate coverage, but not a stress on absitence. Similarly, the states with the highest birth rates among girls, in the south, all mandate a stress on abstience.|
+| Sex Ed Contraception | Births per 1k | This mandate runs somewhat in contrast to the previous one, requiring that sex ed provided in the state provide education on contraception. This mandate is also interesting because it goes against some of the regional trends in mandates. All of the states with the highest birth rates among girls ( > 25/1k), did not mandate contraception be covered. We did note that it is a possiblity that the mandate in some of the southern states may be in response to high birth rates among girls.|"
+cat(tablSpacial) # output the table in a format good for HTML/PDF/docx conversion
+```
 
 # How do state sexual health education mandates affect student health outcomes? 
 
 ## Are stricter mandates effective in improving student health outcomes?
 
-Here, we explore the relationship between statewide health education mandates and metrics of student health and wellbeing. 
+Here, we explore the relationship between statewide health education mandates and metrics of student health and well-being. 
 
 <iframe height="700" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/"> </iframe>
 
@@ -142,20 +155,6 @@ tablScatter <- "
 cat(tablScatter) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-# What can spacial data show us about potential regional differences in mandates and outcomes?
-
-<iframe height="1300" width="100%" frameborder="no" title="Spacial" src=" https://csarosi.shinyapps.io/spacial_data/"> </iframe>
-
-```{r tableSpacial, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
-##Corresponds with spacial_data
-tablSpacial <- "
-| Education Mandate        | Health Outcomes  |  Interesting Insight |
-|---------------|:-------------:|:-------------:|
-| Medically Accurate | Births per 1k Girls | This map reveals both the underlying regional variations in Births per 1k Girls, as well as some correlations between the medically accurate mandate with NC and VA showing relatively low numbers of births in the context of their region. We also see an incredibly mixed bag in terms of the states that do and do not mandate medically accurate sexual education. |
-| Sex Ed Abstinence | Births per 1k  | This mandate is an interesting one, especially in the context that abstinence only sex ed has largely been shown to do little to stop teens from having sex. As can be seen, the majority of states have this mandate, with a particular regional focus in the south. It should also be noted that the new england states with the lowest birth rate among girls all only mandate coverage, but not a stress on absitence. Similarly, the states with the highest birth rates among girls, in the south, all mandate a stress on abstience.|
-| Sex Ed Contraception | Births per 1k | This mandate runs somewhat in contrast to the previous one, requiring that sex ed provided in the state provide education on contraception. This mandate is also interesting because it goes against some of the regional trends in mandates. All of the states with the highest birth rates among girls ( > 25/1k), did not mandate contraception be covered. We did note that it is a possiblity that the mandate in some of the southern states may be in response to high birth rates among girls.|"
-cat(tablSpacial) # output the table in a format good for HTML/PDF/docx conversion
-```
 
 # Conclusions
 
