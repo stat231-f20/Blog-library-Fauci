@@ -1,4 +1,4 @@
-#original scatter plot from Shiny
+#compare state mandates to health outcomes
 #Code From: Aditi
 
 library(tidyverse)

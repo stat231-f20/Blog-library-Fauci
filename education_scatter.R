@@ -25,6 +25,8 @@ data <- read.csv("data/new-project-data.csv") %>%
     TRUE ~ as.numeric(std_edu)
   ))
 
+definitions <- read.csv("data/practices_definitions.csv")
+
 gen_ed_txt <- read_csv("data/education-gen-text.csv") %>%
   rename(State = State_txt)
 
@@ -95,12 +97,15 @@ ui <- navbarPage("Sexual Education Mandates and Health Outcomes in the United St
                           mainPanel(
                             tabsetPanel(type = "tabs"
                                         , tabPanel("Scatterplot", 
+                                                   verbatimTextOutput(outputId = "check"),
+                                                   tableOutput(outputId = "table"),
                                                    plotOutput(outputId = "scatter")
-                                                   ,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
-                                                          or higher per 1K for girls aged 15—17")   
-                                                   ,tags$h6("** Yes, Negative and mandated HIV education teaches that,
-                                                          among other behaviors, “homosexual activity” is considered
-                                                          to be “responsible for contact with the AIDS virus")     
+                                                   
+                                                   #,tags$h6("* Yes, but only if county pregnancy rate is at least 19.5
+                                                          #or higher per 1K for girls aged 15—17")   
+                                                   #,tags$h6("** Yes, Negative and mandated HIV education teaches that,
+                                                          #among other behaviors, “homosexual activity” is considered
+                                                          #to be “responsible for contact with the AIDS virus")     
                                         )))))
 
 server <- function(input,output){
@@ -111,6 +116,11 @@ server <- function(input,output){
       left_join(gen_ed_txt, by = "State") %>%
       left_join(content_ed_txt, by = "State") %>%
       left_join(life_ed_txt, by = "State")
+  })
+  
+  definitions_reactive <- reactive({
+    definitions <- filter(definitions, String == input$y) %>%
+      select(Variable, Definition)
   })
   
   
@@ -128,6 +138,11 @@ server <- function(input,output){
                            "as Statewide Requirement"), 
              color = "Mandate Level")
   })
+  
+  output$table <- renderTable({
+    definitions_reactive()
+  })
+  
 }
 
 # call to shinyApp

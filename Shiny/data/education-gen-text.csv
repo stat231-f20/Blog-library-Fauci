@@ -1,0 +1,49 @@
+State_txt,Sex_Mandated_txt,HIV_Mandated_txt,Medically_Accurate_txt,Age_Appropriate_txt,Unbiased_txt,Cannot_Promote_Religion_txt,Parents_Notified_txt,Parental_Consent_txt,Opt_Out_txt
+Alabama,No,Yes,No,Yes,No,No,No,No,Yes
+Alaska,No,No,No,No,No,No,Yes,No,Yes
+Arizona,No,No,HIV Only,Yes,No,No,Yes,Sex Only,HIV Only
+Arkansas,No,Yes,No,No,No,No,No,No,No
+California,Yes,Yes,Yes,Yes,Yes,Yes,Yes,No,Yes
+Colorado,No,No,No,Yes,Yes,Yes,Yes,No,Yes
+Connecticut,No,Yes,No,No,No,No,No,No,Yes
+Delaware,Yes,Yes,No,No,No,No,No,No,No
+Dist. of Columbia,Yes,Yes,No,Yes,No,No,Yes,No,Yes
+Florida,Yes,Yes,No,Yes,No,No,No,No,Yes
+Georgia,Yes,Yes,No,No,No,No,Yes,No,Yes
+Hawaii,Yes,Yes,Yes,Yes,No,No,No,No,Yes
+Idaho,No,No,No,No,No,No,No,No,Yes
+Illinois,No,Yes,Yes,Yes,No,No,No,No,Yes
+Indiana†,No,Yes,No,No,No,No,Yes,No,Yes
+Iowa,Yes,Yes,Yes,Yes,Yes,No,Yes,No,Yes
+Kansas,Yes,No,No,No,No,No,No,No,No
+Kentucky,Yes,Yes,No,No,No,No,No,No,No
+Louisiana,No,No,Yes,No,No,Yes,No,No,Yes
+Maine,Yes,Yes,Yes,Yes,No,No,No,No,Yes
+Maryland,Yes,Yes,No,No,No,No,Yes,No,Yes
+Massachusetts,No,No,No,No,Yes,No,Yes,No,Yes
+Michigan,No,Yes,No,No,No,No,Yes,No,Yes
+Minnesota,Yes,Yes,No,No,No,No,No,No,No
+MississippiΩ,Yes,No,No,Yes,No,No,Yes,Yes,No
+Missouri,No,Yes,Yes,Yes,No,No,Yes,No,Yes
+Montana,Yes,Yes,No,Yes,No,No,No,No,No
+Nevada,Yes,Yes,No,Yes,No,No,Yes,Yes,No
+New Hampshire,Yes,Yes,No,No,No,No,Yes,No,Yes
+New Jersey,Yes,Yes,Yes,Yes,Yes,No,Yes,No,Yes
+New Mexico,Yes,Yes,No,Yes,No,No,No,No,Yes
+New York,No,Yes,No,HIV Only,No,No,No,No,HIV Only
+North Carolina,Yes,Yes,Yes,Yes,No,No,No,No,Yes
+North Dakota,Yes,Yes,No,No,No,No,No,No,No
+Ohio,Yes,Yes,No,No,No,No,No,No,Yes
+Oklahoma,No,Yes,HIV Only,No,No,No,Yes,No,Yes
+Oregon,Yes,Yes,Yes,Yes,Yes,No,Yes,No,Yes
+Pennsylvania,No,Yes,No,HIV Only,No,No,HIV Only,No,HIV Only
+Rhode Island,Yes,Yes,Yes,Yes,Yes,No,No,No,HIV Only
+South Carolina,Yes,Yes,No,Yes,No,No,Yes,No,Yes
+Tennessee,"Yes, but*",Yes,Yes,Yes,Yes,No,Yes,Yes,No
+Texas,Yes,Yes,No,Yes,No,No,Yes,No,Yes
+Utahξ,Yes,Yes,Yes,No,No,No,Yes,Yes,No
+Vermont,Yes,Yes,No,Yes,No,No,No,No,HIV Only
+Virginia,Yes,Yes,Yes,Yes,No,No,Yes,No,Yes
+Washington,Yes,Yes,Yes,Yes,Yes,No,Yes,No,Yes
+West Virginia,Yes,Yes,No,No,No,No,No,No,Yes
+Wisconsin,No,Yes,No,No,No,No,Yes,No,Yes

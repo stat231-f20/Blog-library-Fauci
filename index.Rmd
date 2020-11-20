@@ -20,15 +20,15 @@ library(shiny)
 
 Sexual health is still a taboo topic across the United States. The openness in conversations about this topic vary by state, community, family, and even individual. As a result, students across the nation have vastly different sexual education experiences: some like the above scene in Mean Girls and others more comprehensive. 
 
-This inconsistency and inequity in sexual education requirements across the nation is not only awkward but can also be consequential for teens. Like an accounting course prepares students for future finances and English classes helps students communicate better, sexual education helps students navigate their sexuality and safely engage in sexual activity. Without sexual education, students are less prepared to manage their sexual and reproductive health and behavior, which can lead to unwanted pregnancy and sexually transmitted diseases (STD).
+This inconsistency and inequity in sexual education requirements across the nation is not only awkward but can also be consequential for teens. Like an accounting course prepares students for future finances and English classes helps students communicate better, sexual education helps students navigate their sexuality and safely engage in sexual activity. Without sexual education, students are less prepared to manage their sexual and reproductive health and behavior, which can lead to unwanted pregnancy and sexually transmitted diseases (STDs).
 
 Given how consequential sexual education can be to teenagers, we investigated how sexual education impacts certain health outcomes. The general effectiveness of sexual education is a broad topic, so we narrowed in on the following questions:
 
 ## Research Questions
 (1) How do state sexual health education mandates affect student health outcomes? 
-(2) Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?
-(3) How do school policies and teachers’ choices affect student health outcomes? 
-(4) What groupings form based on health outcomes? 
+(2) What groupings form based on health outcomes?
+(3) Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?
+(4) How do school policies and teachers’ choices affect student health outcomes? 
 
 ## Data
 
@@ -44,6 +44,8 @@ To answer these questions, we collected the following data:
 	
 	
   - **Health Outcomes**: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by [Alarms.org](https://www.alarms.org/std-statistics/). We combined information from Alarms.org with data from [Power to Decide](https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate) about teen birth rate among girls ages 15-19.
+
+More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:
 
 ```{r tableOutcomes, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 tablOutcomes <- "
@@ -63,40 +65,60 @@ tablOutcomes <- "
 | Sex Ed Orientation | When provided, sex education must cover sexual orientation  |
 | Sex Ed Negative Outcomes | When provided, sex education must cover the possible negative outcomes of sex |
 | HIV Ed Condoms | When provided, HIV education must provide condoms |
-| HIV Ed Abstinence | When provided, HIV education cover or stress abstinence |
+| HIV Ed Abstinence | When provided, HIV education must cover or stress abstinence |
 "
 cat(tablOutcomes) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
 
-
-More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:
-
 # How do state sexual health education mandates affect student health outcomes? 
 
-## Are stricter mandates effective in improving student health outcomes?
+## Are stricter mandates effective in changing student decision-making and improving health outcomes?
 
-Here, we explore the relationship between statewide health education mandates and metrics of student health and wellbeing. 
+Here, we explore the relationship between statewide health education mandates and metrics of student health and well-being, as well as indicators of student behavior that mandates intend to shape.  
 
 <iframe height="700" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/"> </iframe>
+
+We want to point out some notable displays: 
 
 ```{r table2, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
 tabl <- 
 "| Education Mandate        | Health Outcome  |  Interesting Insight |
 |---------------|:-------------:|:-------------:|
-| Sexual decision making and self-discipline | % students intoxicated | Suggests that education on sexual decision making may not be effective, since those states where most students were intoxicated during their last sexual encounter do mandate this type of education. |
-| Sex Ed Marriage | % students with one or more partners  | The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex. |"
+| Sexual decision making and self-discipline | % students intoxicated | Suggests that education on sexual decision making may not be effective, since the 5 states in which students are most likely to have been intoxicated during their last sexual encounter do mandate this type of education. |
+| Sex Ed Marriage | % students with four or more partners  | The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex. |"
 cat(tabl) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
 
-There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play. Other variables besides health education correlate with geographic location and affect student health; these include environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their wellbeing, contrary to what this visualization suggests. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes. 
+There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play: other variables besides health education correlate with geographic location and affect student health, including environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. We next use spatial data to explore the relationships between geography and state mandates and geography and student health metrics.  
+
+# What can spacial data show us about potential regional differences in mandates and outcomes?
+
+Though there is not an obvious relationship between mandates and health outcomes across all fifty states, we wonder if regional patterns arise. Are mandates and health outcomes more closely related when we focus on a particular region?  
+
+<iframe height="1300" width="100%" frameborder="no" title="Spacial" src=" https://csarosi.shinyapps.io/spacial_data/"> </iframe>
+
+```{r tableSpacial, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
+##Corresponds with spacial_data
+tablSpacial <- "
+| Education Mandate        | Health Outcomes  |  Interesting Insight |
+|---------------|:-------------:|:-------------:|
+| Medically Accurate | Births per 1k Girls | This map reveals both the underlying regional variations in Births per 1k Girls, as well as some correlations between the medically accurate mandate with NC and VA showing relatively low numbers of births in the context of their region. |
+| Sex Ed Abstinence | Births per 1k  |  The majority of states have this mandate, with a particular concentration in the south. It should also be noted that the New England states with the lowest birth rate among girls all only mandate coverage, but not a stress on absitence. However, the states with the highest birth rates among girls, in the south, all mandate a stress on abstience.|
+| Sex Ed Contraception | Births per 1k | This mandate runs somewhat in contrast to the previous one, requiring that sex ed provided in the state provide education on contraception. This mandate is also interesting because it goes against some of the regional trends in mandates. All of the states with the highest birth rates among girls ( > 25/1k), did not mandate contraception be covered. We did note that it is a possiblity that the mandate in some of the southern states may be in response to high birth rates among girls.|"
+cat(tablSpacial) # output the table in a format good for HTML/PDF/docx conversion
+```
+
+There may be some regional patterns we can pull out; for example, maybe a stress on abstinence is particularly ineffective in the south, while coverage of abstinence works well in the northeast. But, these relationships are not overwhelmingly clear. In the future, we might want to plot state mandates on one map and health outcomes on another for a side-by-side comparison to confirm what we find here. For now, we make the tentative conclusion that mandates do not have a powerful effect on student health outcomes. 
+
+However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their well-being, contrary to what our visualizations regarding mandates suggest. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes.
 
 # Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?
 
 ## How do statewide mandates and that state’s high schools’ sex ed programs compare?
 
-States mandate certain minimum requirements for secondary schools’ sex ed programs; however, schools can decide how they will comply with the mandate and whether they will enact policies that go beyond the mandate. Further, teachers have agency over how they will teach the material. Here we investigate the overlap between mandates and the programs that educators put into practice. 
+States mandate certain minimum requirements for secondary schools’ sex ed programs; however, schools can decide how they will comply with the mandate and whether they will enact policies that embrace or go beyond its requirements. Further, teachers harbor their own personal attitudes toward the material and have agency over how they will convey it. Here we investigate the overlap between mandates and the programs that educators put into practice. 
 
 <iframe height="700" width="100%" frameborder="no" title="ScatterEdu" src="https://anayak23.shinyapps.io/edu_scatter/"> </iframe>
 
@@ -105,12 +127,12 @@ States mandate certain minimum requirements for secondary schools’ sex ed prog
 tablA2 <- "
 | Education Mandate        | Resource Offered by High Schools  |  Interesting Insight |
 |---------------|:-------------:|:-------------:|
-| HIV Ed Mandated | Increased Student Knowledge on HIV Prevention  | There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).) |
-| Sex Ed Orientation | Increased Student Knowledge on Sexuality | Without a mandate (coded as 0) and with a mandate (coded as 1), the percentage of teachers that tried to increase knowledge on human sexuality is highly concentrated from 70-90%. Due to the high variance in the percentage among states without a mandate, the average percentage is lower than in states with a mandate. |"
+| HIV Ed Mandated | Increased Student Knowledge on HIV Prevention  | Here we can see that an HIV mandate decreases the variance and increases the mean of the percentage of teachers in a state that actively tried to increase knowledge on HIV prevention.  |
+| Sex Ed Orientation | Increased Student Knowledge on Sexuality | Without a mandate (coded as 0) and with a mandate (coded as 1), the percentage of teachers that tried to increase knowledge on human sexuality is highly concentrated from 70-90%. Due to the high variance in the percentage among states without a mandate, the mean percentage is lower in states without a mandate. |"
 cat(tablA2) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-We see some preliminary evidence that mandates have a small, but not definitive, effect on teacher practices. 
+We see some preliminary evidence that mandates have a small effect on teacher practices. Plotting the data another way helps us pull out other insights: 
 
 <iframe height="800" width="100%" frameborder="no" title="Histogram3" src="https://anayak23.shinyapps.io/Blog_L3/ "> </iframe>
 
@@ -119,15 +141,15 @@ We see some preliminary evidence that mandates have a small, but not definitive,
 tablLP <- "
 | Education Mandate        | Practice/Behavior  |  Interesting Insight |
 |---------------|:-------------:|:-------------:|
-| Sex Ed Mandated | Provided Educators with Strategies | There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. In these states, teachers have a large amount of discretion. (However, it is unclear if this disparity between mandate and policy has an effect on student health. All of these 8 states have an STD index of 0.45 or lower, scoring better than about half of all states. In fact, one of the states, Vermont, has the lowest STD index of any state. By another metric, births per 1,000 girls, this result is less definitive: the states fall over a wide range, from 27.2 (Kentucky) to 8.8 (Vermont).) |"
+| Sex Ed Mandated | Provided Educators with Strategies | There are 8 states in which sex ed is mandated but in which fewer than 70% of schools provide teachers strategies for teaching sex ed. This demonstrates that mandates still leave open the possibility of a large amount of teacher discretion. |"
 cat(tablLP) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-We cannot definitively conclude whether state mandates and teacher behavior are correlated, but there seems evidence that mandates leave much discretion to schools and teachers, and thus mandates do not correlate strongly with school and teacher practices. 
+There is evidence that mandates may have a slight influence on school policies and teachers' commitment to the material. Importantly, we cannot see whether this is a causal affect; maybe teachers in states that are more likely to have a mandate are also more likely to buy-in to this material even without a mandate. The apparent weakness of the correlation suggests a large amount of discretion is left to schools and teachers. Is it schools' and teachers' decisions, rather than state law, that influence health outcomes? 
 
-## Are school policies and teachers’ efforts effective in improving student health outcomes?
+## Are school policies and teachers’ efforts good indicators of good health outcomes?
 
-Because state mandates do not predict the comprehensiveness of school sex ed policies and teachers’ zeal in conveying the information to students, it may be that educator practices correspond to student health in a way that mandates do not. To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes. Alternatively, users can choose to plot a metric related to student behavior to investigate whether behaviors are a better predictor of health outcomes than education metrics. 
+It seems plausible that educators' enthusiasm for the material corresponds to student health in a way that mandates do not. To investigate this idea, we’ve plotted school policies and teacher practices against health outcomes. 
 
 <iframe height="600" width="100%" frameborder="no" title="SchoolScatter" src="https://anayak23.shinyapps.io/school_edu_scatter/"> </iframe>
 
@@ -142,30 +164,21 @@ tablScatter <- "
 cat(tablScatter) # output the table in a format good for HTML/PDF/docx conversion
 ```
 
-# What can spacial data show us about potential regional differences in mandates and outcomes?
-
-<iframe height="1300" width="100%" frameborder="no" title="Spacial" src=" https://csarosi.shinyapps.io/spacial_data/"> </iframe>
-
-```{r tableSpacial, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
-##Corresponds with spacial_data
-tablSpacial <- "
-| Education Mandate        | Health Outcomes  |  Interesting Insight |
-|---------------|:-------------:|:-------------:|
-| Medically Accurate | Births per 1k Girls | This map reveals both the underlying regional variations in Births per 1k Girls, as well as some correlations between the medically accurate mandate with NC and VA showing relatively low numbers of births in the context of their region. We also see an incredibly mixed bag in terms of the states that do and do not mandate medically accurate sexual education. |
-| Sex Ed Abstinence | Births per 1k  | This mandate is an interesting one, especially in the context that abstinence only sex ed has largely been shown to do little to stop teens from having sex. As can be seen, the majority of states have this mandate, with a particular regional focus in the south. It should also be noted that the new england states with the lowest birth rate among girls all only mandate coverage, but not a stress on absitence. Similarly, the states with the highest birth rates among girls, in the south, all mandate a stress on abstience.|
-| Sex Ed Contraception | Births per 1k | This mandate runs somewhat in contrast to the previous one, requiring that sex ed provided in the state provide education on contraception. This mandate is also interesting because it goes against some of the regional trends in mandates. All of the states with the highest birth rates among girls ( > 25/1k), did not mandate contraception be covered. We did note that it is a possiblity that the mandate in some of the southern states may be in response to high birth rates among girls.|"
-cat(tablSpacial) # output the table in a format good for HTML/PDF/docx conversion
-```
+It is important to not that any apparent correlation here cannot be said to be a causal effect. 
 
 # Conclusions
 
+## Limitations
+
 Before we can draw any conclusions from our data and visualizations, we must first acknowledge the limitations of this data. 
 
-The first is that, because we drew different variables from different sources, some data points don’t reflect data from the same years. While some sources are from an ambiguous time period, most are from the years 2017-2019. Presumably, our variables haven’t changed in a drastic way in this short period, though they could have.  
+The first is that, because we drew different variables from different sources, some data points don’t reflect data from the same year. While some sources are from an ambiguous time period, most are from the years 2017-2019. Presumably, our variables haven’t changed in a drastic way in this short period, though they could have.  
 
-Another limitation is that our metrics of school practices and teacher attitudes relied on self-reporting from the state. States seem to differ in their infrastructures for collecting this information; for example Colorado presented wide ranges as estimates, of which we decided to take the mean. The disparity in states’ care and caution in collecting information is likely not independent from their mandates, policies, and practices regarding sex ed, and for this reason this could be a significant limitation.  
+Another limitation is that our metrics of school practices and teacher attitudes relied on self-reporting from states. States seem to differ in their infrastructures for collecting this information; for example, Colorado seemed to estimate their metrics, presenting a wide range of which we decided to take the mean. The disparity in states’ care and caution in collecting information is likely not independent from their mandates, policies, and practices regarding sex ed, and for this reason this could be a significant limitation.  
 
-We  can make a few primary conclusions responsive to our research questions.
+## Findings and Recommendations 
+
+Keeping these limitations in mind, we can make a few primary conclusions responsive to our research questions.
 
 1. Statewide sexual health  education mandates do not seem to correlate with student’s health outcomes.
 
@@ -173,14 +186,19 @@ We  can make a few primary conclusions responsive to our research questions.
 
 3. While strict mandates don’t correspond to better health outcomes, there is strong evidence that teachers’ buy-in to the material do correspond to better health outcomes. In particular, there seems to be a strong effect of teacher practices regarding STD and HIV prevention in decreasing STD and HIV rates (though we cannot assume this is a causal relationship.) On the other hand, schools that provide sex ed teachers the materials they need, going beyond state mandate guidelines, have not seen the reward of better student health outcomes. 
 
-We would recommend the following to state legislatures, schools, or educators looking to improve the student health outcomes in their state. 
+## Recommendations
 
-1. Initiatives that increase teacher buy-in, confidence, and comfort with the material will have the most significant impact of student health outcomes. It might be useful to put mediated groups together where teachers can talk about these topics and how they feel teaching them, as well as share their own techniques with others. 
+We would recommend the following to state legislators, schools, or educators looking to improve the student health outcomes in their state. 
 
-2. A focus on the efficacy of the strategies that are recommended to teachers has the potential to go a long way, since states in which these strategies are most likely to be implemented also see high STD infection rates. 
+1. Initiatives that increase teacher buy-in, confidence, and comfort with the material will have the most significant impact on student health outcomes. It might be useful to put mediated teacher groups together, in which teachers can talk about the material, share their feelings about their responsibility to present it to students in an engaging way, and swap ideas about techniques.  
 
+2. A focus on the efficacy of the strategies schools provide to teachers has the potential to go a long way, since states in which these strategies are most likely to be implemented also see high STD infection rates. 
 
-# References
+Generally, mandates less efficacious than might be expected, and efforts to improve student health should focus on the policies and practices exhibited in schools. 
+
+# Citations
+
+Data
 
 Alarms.org. “Sexually Transmitted Diseases by State.” National Council For Home Safety and Security, 17 Feb. 2020, [www.alarms.org/std-statistics/](www.alarms.org/std-statistics/).   
 
@@ -189,3 +207,14 @@ Guttmacher Institute. “Sex and HIV Education.” Guttmacher Institute, 2 Nov. 
 “Teen Birth Rate Comparison, 2018: Power to Decide.” Teen Birth Rate Comparison, 2018 | Power to Decide, 2020, [powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate](powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate).   
 
 U.S. Department of Health & Human Services. “State School-Based Health Education Law Summary Reports.” Centers for Disease Control and Prevention, Centers for Disease Control and Prevention, 20 June 2018, [www.cdc.gov/healthyyouth/policy/state_law_summary_reports.html](www.cdc.gov/healthyyouth/policy/state_law_summary_reports.html). 
+
+Packages 
+
+Sievert C (2020). Interactive Web-Based Data Visualization with R, plotly, and shiny. Chapman and Hall/CRC. ISBN 9781138331457, [https://plotly-r.com] (https://plotly-r.com). 
+
+Wickham H, Averick M, Bryan J, Chang W, McGowan LD, François R, Grolemund G, Hayes A, Henry L, Hester J, Kuhn M, Pedersen TL, Miller E, Bache SM, Müller K, Ooms J, Robinson D, Seidel DP, Spinu V, Takahashi K, Vaughan D, Wilke C, Woo K, Yutani H (2019). “Welcome to the tidyverse.” Journal of Open Source Software, 4(43), 1686. doi: [https://joss.theoj.org/papers/10.21105/joss.01686] (https://joss.theoj.org/papers/10.21105/joss.01686).
+
+Winston Chang, Joe Cheng, JJ Allaire, Yihui Xie and Jonathan McPherson (2020). shiny: Web Application Framework for R. R package version 1.5.0. https://CRAN.R-project.org/package=shiny
+
+Original S code by Richard A. Becker, Allan R. Wilks. R version by Ray Brownrigg. Enhancements by Thomas P Minka and Alex Deckmyn. (2018). maps: Draw Geographical Maps. R package version 3.3.0. https://CRAN.R-project.org/package=maps
+
