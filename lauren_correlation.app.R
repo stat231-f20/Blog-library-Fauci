@@ -34,64 +34,79 @@ content_ed_txt[39,1] <- "Utah"
 life_ed_txt <- read_csv("data/education-life-text.csv") %>%
   rename(State = State_txt)
 
-View(data)
-
 # define vectors for choice values and labels
 # for selectInput, needs to be named list
-x_choices <- as.list(names(data)[36:38])
-x_data_names <- c(names(data)[36:38])
-x_choice_names <- c("% Students with Four or more partners",
-                    "% Students Intoxicated During Sex",
-                    "% Students Used Condom During Last Sexual Intercourse")
+x_choices <- as.list(names(data)[2:22])
+x_data_names <- c(names(data)[2:22])
+x_choice_names <- c("Sex Ed Mandated",
+                    "HIV Ed Mandated",
+                    "Medically Accurate",
+                    "Age Appropriate",
+                    "Culturally Appropriate/Unbiased",
+                    "Cannot Promote Religion",
+                    "Parents Notified",
+                    "Parental Consent",
+                    "Opt-Out",
+                    "Sex Ed Contraception",
+                    "Sex Ed Abstinence",
+                    "Sex Ed Marriage",
+                    "Sex Ed Orientation",
+                    "Sex Ed Negative Outcomes",
+                    "HIV Ed Condoms",
+                    "HIV Ed Abstinence",
+                    "Healthy Relationships",
+                    "Sexual decision-making and self-discipline",
+                    "Refusal skills and personal boundaries",
+                    "Consent",
+                    "Dating and sexual violence prevention")
 names(x_choices) <- x_choice_names
 print(x_choices)
 
-y_choices <- as.list(names(data)[23:30])
-y_choices <- append(y_choices, as.list(names(data)[36:38]), after = 8)
-y_data_names <- c(names(data)[23:30])
-y_data_names <- append(y_data_names, c(names(data)[36:38]), after = 8)
-y_choice_names <- c("Chlamydia Per 100K",
-                    "Syphilis Per 100K",
-                    "Gonorrhea Per 100K",
-                    "Married Household %",
-                    "% HS Grad or Higher",
-                    "STD Index",
-                    "Births Per 1K Girls",
-                    "HIV Per 100K",
-                    "% Students with Four or more partners",
-                    "% Students Intoxicated During Sex",
-                    "% Students Used Condom During Last Sexual Intercourse")
+y_choices <- as.list(names(data)[36:38])
+y_data_names <- c(names(data)[36:38])
+y_choice_names <- c("four",
+                    "intoxicated",
+                    'condoms')
 names(y_choices) <- y_choice_names
 
 # ui -----
 #For this section, citing this source to get code for different sidebars for different tabs: 
 #https://community.rstudio.com/t/different-inputs-sidebars-for-each-tab/1937
 ui <- navbarPage(
-                          
-                          mainPanel(
-                            tabsetPanel(type = "tabs", 
                  
-                 tabPanel("Relationship Between Different Outcomes",
-                          sidebarPanel(
+       tabPanel("Relationship Between Different Outcomes",
+                  sidebarPanel(
                             selectInput(inputId = "corr_x"
-                                        , label = "Choose a student behavior"
-                                        , choices = x_choices
-                                        , selected = "% Students with Four or more partners"),
+                                        , label = "Choose an outcome of interest"
+                                        , choices = y_choices
+                                        , selected = "Chlamydia"),
                             selectInput(inputId = "corr_y"
-                                        , label = "Choose a health outcome"
+                                        , label = "Choose another outcome of interest"
                                         , choices = y_choices
                                         , selected = "Syphilis")
-                          ),
+                          )),
                           
                           mainPanel(
                             #verbatimTextOutput(outputId = "check"),
                             plotlyOutput(outputId = "cor_plot"),
                             tableOutput(outputId = "cor")
                           )
-                 ))))
+            )
+                 
 
 # server  -----
 server <- function(input,output){
+  
+  use_data <- reactive({
+    data <- data %>%
+      select(State, input$x, input$y) %>%
+      left_join(gen_ed_txt, by = "State") %>%
+      left_join(content_ed_txt, by = "State") %>%
+      left_join(life_ed_txt, by = "State")
+    
+    
+  })
+  
   
   #Correlation Tab -------
   in_data <- reactive({ data %>% 
