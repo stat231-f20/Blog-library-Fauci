@@ -1559,15 +1559,19 @@ $(document).ready(function () {
       <li><a href="#research-questions">Research Questions</a></li>
       <li><a href="#data">Data</a></li>
       </ul></li>
-      <li><a href="#what-can-spacial-data-show-us-about-potential-regional-differences-in-mandates-and-outcomes">What can spacial data show us about potential regional differences in mandates and outcomes?</a></li>
       <li><a href="#how-do-state-sexual-health-education-mandates-affect-student-health-outcomes">How do state sexual health education mandates affect student health outcomes?</a><ul>
       <li><a href="#are-stricter-mandates-effective-in-improving-student-health-outcomes">Are stricter mandates effective in improving student health outcomes?</a></li>
       </ul></li>
+      <li><a href="#what-can-spacial-data-show-us-about-potential-regional-differences-in-mandates-and-outcomes">What can spacial data show us about potential regional differences in mandates and outcomes?</a></li>
       <li><a href="#do-state-education-mandates-correspond-to-the-policies-schools-enact-and-the-material-teachers-choose-to-emphasize">Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?</a><ul>
       <li><a href="#how-do-statewide-mandates-and-that-states-high-schools-sex-ed-programs-compare">How do statewide mandates and that state’s high schools’ sex ed programs compare?</a></li>
       <li><a href="#are-school-policies-and-teachers-efforts-effective-in-improving-student-health-outcomes">Are school policies and teachers’ efforts effective in improving student health outcomes?</a></li>
       </ul></li>
-      <li><a href="#conclusions">Conclusions</a></li>
+      <li><a href="#conclusions">Conclusions</a><ul>
+      <li><a href="#limitations">Limitations</a></li>
+      <li><a href="#conclusions-1">Conclusions</a></li>
+      <li><a href="#recommendations">Recommendations</a></li>
+      </ul></li>
       <li><a href="#citations">Citations</a></li>
       </ul>
     </div>
@@ -1595,9 +1599,9 @@ $(document).ready(function () {
 <h2>Research Questions</h2>
 <ol style="list-style-type: decimal">
 <li>How do state sexual health education mandates affect student health outcomes?</li>
+<li>What groupings form based on health outcomes?</li>
 <li>Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?</li>
 <li>How do school policies and teachers’ choices affect student health outcomes?</li>
-<li>What groupings form based on health outcomes?</li>
 </ol>
 </div>
 <div id="data" class="section level2">
@@ -1609,6 +1613,7 @@ $(document).ready(function () {
 <li><p><strong>Sexual Behaviors</strong>: One way we assess the effectiveness of these sex ed programs is through what students acutally do. The aforementioned <a href="https://www.cdc.gov/healthyyouth/policy/state_law_summary_reports.htm">CDC 2017 survey report</a> offered us this information (such as what percent of students in a state have had sexual intercourse with at least 4 partners).</p></li>
 <li><p><strong>Health Outcomes</strong>: We also looked at related student health outcomes (such as chlamydia cases and number of teenage pregnancies) to measure the effectiveness of sex ed programs. We collected this information from the Centers for Disease Control and Prevention’s 2018 STD Surveillance Report, as reported by <a href="https://www.alarms.org/std-statistics/">Alarms.org</a>. We combined information from Alarms.org with data from <a href="https://powertodecide.org/what-we-do/information/national-state-data/teen-birth-rate">Power to Decide</a> about teen birth rate among girls ages 15-19.</p></li>
 </ul>
+<p>More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:</p>
 <table>
 <colgroup>
 <col width="50%"></col>
@@ -1683,7 +1688,42 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-<p>More information about what the data represents or how it was collected by these sources can be found through the above hyperlinks. Further information about the data used can also be found on the following table:</p>
+</div>
+</div>
+<div id="how-do-state-sexual-health-education-mandates-affect-student-health-outcomes" class="section level1">
+<h1>How do state sexual health education mandates affect student health outcomes?</h1>
+<div id="are-stricter-mandates-effective-in-improving-student-health-outcomes" class="section level2">
+<h2>Are stricter mandates effective in improving student health outcomes?</h2>
+<p>Here, we explore the relationship between statewide health education mandates and metrics of student health and well-being.</p>
+<iframe height="700" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/">
+</iframe>
+<table>
+<colgroup>
+<col width="33%"></col>
+<col width="33%"></col>
+<col width="33%"></col>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Education Mandate</th>
+<th align="center">Health Outcome</th>
+<th align="center">Interesting Insight</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Sexual decision making and self-discipline</td>
+<td align="center">% students intoxicated</td>
+<td align="center">Suggests that education on sexual decision making may not be effective, since those states where most students were intoxicated during their last sexual encounter do mandate this type of education.</td>
+</tr>
+<tr class="even">
+<td>Sex Ed Marriage</td>
+<td align="center">% students with one or more partners</td>
+<td align="center">The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex.</td>
+</tr>
+</tbody>
+</table>
+<p>There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play. Other variables besides health education correlate with geographic location and affect student health; these include environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their wellbeing, contrary to what this visualization suggests. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes.</p>
 </div>
 </div>
 <div id="what-can-spacial-data-show-us-about-potential-regional-differences-in-mandates-and-outcomes" class="section level1">
@@ -1721,42 +1761,6 @@ $(document).ready(function () {
 </tr>
 </tbody>
 </table>
-</div>
-<div id="how-do-state-sexual-health-education-mandates-affect-student-health-outcomes" class="section level1">
-<h1>How do state sexual health education mandates affect student health outcomes?</h1>
-<div id="are-stricter-mandates-effective-in-improving-student-health-outcomes" class="section level2">
-<h2>Are stricter mandates effective in improving student health outcomes?</h2>
-<p>Here, we explore the relationship between statewide health education mandates and metrics of student health and well-being.</p>
-<iframe height="700" width="100%" frameborder="no" title="Histogram1" src="https://anayak23.shinyapps.io/Blog_L1/">
-</iframe>
-<table>
-<colgroup>
-<col width="33%"></col>
-<col width="33%"></col>
-<col width="33%"></col>
-</colgroup>
-<thead>
-<tr class="header">
-<th>Education Mandate</th>
-<th align="center">Health Outcome</th>
-<th align="center">Interesting Insight</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Sexual decision making and self-discipline</td>
-<td align="center">% students intoxicated</td>
-<td align="center">Suggests that education on sexual decision making may not be effective, since those states where most students were intoxicated during their last sexual encounter do mandate this type of education.</td>
-</tr>
-<tr class="even">
-<td>Sex Ed Marriage</td>
-<td align="center">% students with one or more partners</td>
-<td align="center">The three states in which the most students have had four or more sexual partners also mandate sex ed that emphasises waiting for marriage to have sex.</td>
-</tr>
-</tbody>
-</table>
-<p>There seems to be a disconnect between the severity of a state’s education mandates and its related student health outcomes. Of course, lurking variables are at play. Other variables besides health education correlate with geographic location and affect student health; these include environmental factors, food, alcohol, and tobacco culture, and access to outdoor space for exercise. However, it seems to us that schools’ empowering students to make informed choices likely does have some effect on their wellbeing, contrary to what this visualization suggests. Therefore, we were motivated to look next at education practices - what actually happens inside schools - to see if they align with mandates. If practices and mandates do not coincide, that may explain why we don’t see a clear effect of mandates on student health outcomes.</p>
-</div>
 </div>
 <div id="do-state-education-mandates-correspond-to-the-policies-schools-enact-and-the-material-teachers-choose-to-emphasize" class="section level1">
 <h1>Do state education mandates correspond to the policies schools enact and the material teachers choose to emphasize?</h1>
@@ -1852,21 +1856,30 @@ $(document).ready(function () {
 </div>
 <div id="conclusions" class="section level1">
 <h1>Conclusions</h1>
+<div id="limitations" class="section level2">
+<h2>Limitations</h2>
 <p>Before we can draw any conclusions from our data and visualizations, we must first acknowledge the limitations of this data.</p>
 <p>The first is that, because we drew different variables from different sources, some data points don’t reflect data from the same years. While some sources are from an ambiguous time period, most are from the years 2017-2019. Presumably, our variables haven’t changed in a drastic way in this short period, though they could have.</p>
 <p>Another limitation is that our metrics of school practices and teacher attitudes relied on self-reporting from the state. States seem to differ in their infrastructures for collecting this information; for example Colorado presented wide ranges as estimates, of which we decided to take the mean. The disparity in states’ care and caution in collecting information is likely not independent from their mandates, policies, and practices regarding sex ed, and for this reason this could be a significant limitation.</p>
+</div>
+<div id="conclusions-1" class="section level2">
+<h2>Conclusions</h2>
 <p>Keeping these limitations in mind, we can make a few primary conclusions responsive to our research questions.</p>
 <ol style="list-style-type: decimal">
 <li><p>Statewide sexual health education mandates do not seem to correlate with student’s health outcomes.</p></li>
 <li><p>We cannot definitively say if there is a causal effect, but we think Conclusion 1 may be true in part because sexual health education mandates do not exactly predict what actually occurs in schools in particular states. School policies and teachers’ desire to emphasize the material seem to be independent from mandates.</p></li>
 <li><p>While strict mandates don’t correspond to better health outcomes, there is strong evidence that teachers’ buy-in to the material do correspond to better health outcomes. In particular, there seems to be a strong effect of teacher practices regarding STD and HIV prevention in decreasing STD and HIV rates (though we cannot assume this is a causal relationship.) On the other hand, schools that provide sex ed teachers the materials they need, going beyond state mandate guidelines, have not seen the reward of better student health outcomes.</p></li>
 </ol>
+</div>
+<div id="recommendations" class="section level2">
+<h2>Recommendations</h2>
 <p>We would recommend the following to state legislators, schools, or educators looking to improve the student health outcomes in their state.</p>
 <ol style="list-style-type: decimal">
 <li><p>Initiatives that increase teacher buy-in, confidence, and comfort with the material will have the most significant impact on student health outcomes. It might be useful to put mediated teacher groups together, in which teachers can talk about the material, share their feelings about their responsibility to present it to students in an engaging way, and swap ideas about techniques.</p></li>
 <li><p>A focus on the efficacy of the strategies schools provide to teachers has the potential to go a long way, since states in which these strategies are most likely to be implemented also see high STD infection rates.</p></li>
 </ol>
 <p>Generally, mandates less efficacious than might be expected, and efforts to improve student health should focus on the policies and practices exhibited in schools.</p>
+</div>
 </div>
 <div id="citations" class="section level1">
 <h1>Citations</h1>

@@ -93,8 +93,6 @@ There seems to be a disconnect between the severity of a state’s education man
 
 # What can spacial data show us about potential regional differences in mandates and outcomes?
 
-Before examining any correlation between statewide mandates and outcomes, we wanted to see if there 
-
 <iframe height="1300" width="100%" frameborder="no" title="Spacial" src=" https://csarosi.shinyapps.io/spacial_data/"> </iframe>
 
 ```{r tableSpacial, echo=FALSE, message=FALSE, warnings=FALSE, results='asis'}
