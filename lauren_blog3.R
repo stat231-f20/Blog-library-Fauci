@@ -23,6 +23,12 @@ data <- read.csv("data/new-project-data.csv") %>%
     TRUE ~ as.numeric(std_edu)
   ))
 
+write_csv(data,
+          "data/new-project-data.csv", 
+          na = "NA", 
+          append = FALSE,
+          col_names = TRUE)
+
 definitions <- read.csv("data/practices_definitions.csv")
 
 gen_ed_txt <- read_csv("data/education-gen-text.csv") %>%
