@@ -11,18 +11,19 @@ cdc_state_data <- data.frame(matrix(ncol = 3, nrow = 0))
 cdc_col_names <- c("State", "URL", "CDC Text")
 colnames(cdc_state_data) <- cdc_col_names
 
+#add in state names to empty data frame 
 project_data <- read_csv("data/project_data.csv")
 state_names <- as.vector(project_data[,1])
 
 cdc_state_data <- rbind(cdc_state_data, data.frame(State = state_names))
 
+#add each state's url to data frame
 cdc_scraped <- cdc_state_data %>%
   mutate(URL = paste0("https://www.cdc.gov/healthyyouth/policy/txt/summary_report_factsheets/",
                       State,
                       ".txt"))
 
-#cdc_scraped <- cdc_final
-
+#scrape text from each state's url
 for(i in 1:50){
   
   #identify url
@@ -42,9 +43,10 @@ for(i in 1:50){
   )
 }
 
-
+#initialize empty data frame to collect separated text from above scraping
 split_cdc_text <- data.frame(matrix(ncol = 54, nrow = 54))
 
+#divide text from website and only keep data values
 for(i in 1:50){
   
   split_cdc_text[,i] <- tryCatch(
@@ -95,6 +97,7 @@ cdc_split_wider <- cdc_split %>%
   select(-c(before_13)) %>%
   arrange(State)
 
+#combine newly scraped data with old data
 project_data <- project_data %>%
   mutate("State" = paste0(State," "))
 
